@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Registration accepted</h1>
+<div mat-dialog-content>
+    <h3>The following should help to complete your registration</h3>
+
+    <mat-list>
+        <mat-list-item>
+            <mat-icon mat-list-icon>mood</mat-icon>
+            <h4 matLine>We have sent you an email</h4>
+            <p matLine>Please check your email account. Allow a few minutes for this to reach you.</p>
+        </mat-list-item>
+        <mat-list-item>
+            <mat-icon class="mat-primary" mat-list-icon>check_circle</mat-icon>
+            <h4 matLine>Follow the email instructions</h4>
+            <p matLine>Once you have your email it will contain a link to conclude the registration with further information on how to get your account working for you.</p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>mood_bad</mat-icon>
+            <h4 matLine>If no email arrives</h4>
+            <p matLine>Do not worry just fill out the sign-up form again and we will send you another.</p>
+            <p matLine>Please note that each email contains a unique link, so if you sign up more than once only the most recent link will be valid.</p>
+        </mat-list-item>
+        <mat-list-item>
+            <mat-icon class="mat-warn" mat-list-icon>help</mat-icon>
+            <h4 matLine>Still having problems</h4>
+            <p matLine>Contact us and we will do all we can to help you get started.</p>
+        </mat-list-item>
+    </mat-list>
+</div>
+<div mat-dialog-actions fxLayoutAlign="end center">
+    <button class="mat-primary" mat-button (click)="confirm()" tabindex="1">Close</button>
+</div>

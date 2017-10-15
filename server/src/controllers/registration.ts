@@ -70,7 +70,8 @@ class RegistrationController {
     }
 
     findAccount(req: Request, res: Response, next: NextFunction) {
-        AccountModel.findById(req.params.accountId, '_id identity status created updated')
+        AccountModel.findById(req.params.accountId)
+            .select('_id identity status created updated')
             .then((account) => res.send(account))
             .catch((err) => next(err));
     }

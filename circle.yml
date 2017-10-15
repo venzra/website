@@ -6,7 +6,7 @@ jobs:
       - image: circleci/node:8-browsers
       - image: circleci/mongo:3.4
     environment:
-      - NODE_ENV: production
+      - NODE_ENV: test
     resource_class: medium
     steps:
       - checkout

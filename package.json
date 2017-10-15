@@ -16,7 +16,7 @@
         "watch": "concurrently -k -s first \"npm run watch:server\" \"npm run watch:client\"",
         "watch:client": "ng build -w --output-path=dist/client",
         "watch:server": "concurrently -k -s first \"tsc -w -p ./server\" \"nodemon dist/server/main.js\"",
-        "postinstall": "./node_modules/.bin/webdriver-manager update --versions.chrome 2.31 --versions.standalone 3.4.0"
+        "postinstall": "webdriver-manager update --versions.chrome 2.31 --versions.standalone 3.4.0"
     },
     "dependencies": {
         "@angular/animations": "4.4.5",

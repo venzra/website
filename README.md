@@ -2,6 +2,8 @@
 
 Venzra commerce solution - full end-to-end stack
 
+[![CircleCI](https://circleci.com/gh/sysen-limited/venzra-website.svg?style=svg&circle-token=2ab17fec2242f6bb1b9e34533af5cc8b8854ccd3)](https://circleci.com/gh/sysen-limited/venzra-website)
+
 ### Marketing Website
 
 When running this project will be available locally on http://localhost:8080

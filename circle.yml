@@ -21,6 +21,9 @@ jobs:
       - run:
           name: Test server
           command: npm run test:server
+      - run:
+          name: Notify build completed
+          command: curl -XPOST -H "Content-Type: application/json" -d '{ "release": "$CIRCLE_BRANCH-$CIRCLE_BUILD_NUM" }' https://wxhly2j3oc.execute-api.eu-west-2.amazonaws.com/production/environments/1fd1da50-ca3a-11e7-8e89-ddd24d528194/deployed/c66346a0-de59-11e7-baca-539d2ad633e4/finishBuild
       - save_cache:
           key: dependency-cache-{{ .Branch }}
           paths:

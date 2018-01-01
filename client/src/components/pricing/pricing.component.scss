@@ -1,0 +1,60 @@
+@import '../../../styles';
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+.hero {
+    padding: 0 20px;
+    height: 420px;
+    color: #fff;
+    background-color: mat-color($venzra-app-primary);
+
+    > div {
+        position: relative;
+    }
+
+    * {
+        white-space: nowrap;
+    }
+
+    .stage {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: rotate(20deg);
+        color: rgba(255, 255, 255, 0.53);
+
+        a {
+            font-size: 18px;
+        }
+    }
+
+    @media ($mat-xsmall) {
+        height: 480px;
+    }
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 40px;
+
+    @media ($mat-xsmall) {
+        padding: 60px 20px;
+    }
+}
+
+.headers-align {
+    .mat-expansion-panel-header-title {
+        flex-basis: 0;
+    }
+    .mat-expansion-panel-header-description {
+        flex-basis: 0;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.strike {
+    text-decoration: line-through;
+}

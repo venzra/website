@@ -7,7 +7,7 @@ defineSupportCode(({ Given, When, Then }) => {
     const prepareMock = (uri, target, type, status, file) => {
         let mock = nock(uri);
 
-        if(!target) {
+        if (!target) {
             mock.filteringPath(/.*/, '*');
         }
 
@@ -25,5 +25,9 @@ defineSupportCode(({ Given, When, Then }) => {
     Given(/^there is a (POST|GET) consumer at "([^"]*)"(?: for "([^"]*)")? that will return(?: "([^"]*)" with)? status (\d+)$/, function (type, uri, target, file, status) {
         return this.addMock(prepareMock(uri, target, type, status, file));
     });
+
+    Given(/^I show the available history$/, function () {
+        console.log(this.history);
+    })
 
 });

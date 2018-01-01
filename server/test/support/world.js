@@ -1,9 +1,10 @@
+const fs = require('fs');
+const path = require('path');
 const { defineSupportCode } = require('cucumber');
 
 const crypto = require('crypto');
 const supertest = require('supertest');
 const uuid = require('uuid');
-
 
 let history = {};
 
@@ -28,6 +29,11 @@ class World {
         this.mocks = [];
     }
 
+    readMock(file) {
+        const filePath = path.join(__dirname, '../mocks', file);
+        return JSON.parse(fs.readFileSync(filePath));
+    }
+
     parseTemplateString(string) {
         let template = string.match(/{{\s?(\S*)\s?}}/);
         if (template !== null) {
@@ -50,6 +56,11 @@ class World {
 
         for (let row of rows) {
             for (let hash in row) {
+                if (!row[hash] || row[hash] === '') {
+                    delete row[hash];
+                    break;
+                }
+
                 row[hash] = this.parseTemplateString(row[hash]);
 
                 const keywords = row[hash].match(/^(\S*)\((\S*)\)$/);
@@ -85,7 +96,7 @@ class World {
 
     performGet(endpoint, storage) {
         return new Promise((resolve) => {
-            let request = this.agent.get(endpoint);
+            let request = this.agent.get(this.parseTemplateString(endpoint));
 
             this.headers.forEach((header) => {
                 request.set(header.name, header.value);
@@ -120,7 +131,7 @@ class World {
 
     performPost(endpoint, data, storage) {
         return new Promise((resolve) => {
-            let request = this.agent.post(endpoint);
+            let request = this.agent.post(this.parseTemplateString(endpoint));
 
             this.headers.forEach((header) => {
                 request.set(header.name, header.value);
@@ -157,7 +168,7 @@ class World {
 
     performPatch(endpoint, data, storage) {
         return new Promise((resolve) => {
-            let request = this.agent.patch(endpoint);
+            let request = this.agent.patch(this.parseTemplateString(endpoint));
 
             this.headers.forEach((header) => {
                 request.set(header.name, header.value);

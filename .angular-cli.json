@@ -7,15 +7,17 @@
         {
             "root": "client",
             "assets": [
+                "assets",
                 "favicon.ico"
             ],
             "index": "index.html",
             "main": "main.ts",
             "polyfills": "polyfills.ts",
             "tsconfig": "tsconfig.json",
-            "prefix": "src",
+            "prefix": "venzra",
             "styles": [
-                "styles.sass"
+                "styles.scss",
+                "../node_modules/normalize.css/normalize.css"
             ],
             "scripts": [],
             "environmentSource": "environments/environment.ts",
@@ -31,29 +33,11 @@
         }
     ],
     "defaults": {
-        "styleExt": "sass",
+        "styleExt": "scss",
         "component": {
             "spec": false,
             "inlineStyle": true,
             "inlineTemplate": true
-        },
-        "directive": {
-            "spec": false
-        },
-        "class": {
-            "spec": false
-        },
-        "guard": {
-            "spec": false
-        },
-        "module": {
-            "spec": false
-        },
-        "pipe": {
-            "spec": false
-        },
-        "service": {
-            "spec": false
         }
     }
 }

@@ -15,7 +15,6 @@ class RegistrationController {
 
     registerRoutes() {
         this.router.post('/registration/create', this.create.bind(this), this.findAccount.bind(this));
-        this.router.get('/registration/plans', this.plans.bind(this));
     }
 
     create(req: Request, res: Response, next: NextFunction) {
@@ -58,15 +57,6 @@ class RegistrationController {
                 next();
             })
             .catch((err) => next(err));
-    }
-
-    plans(req: Request, res: Response) {
-        const plans = [
-            { name: 'United Kingdom', currency: 'GBP', symbol: '£', units: 'p', quantity: 10, value: 80, fraction: 100, fee: 25 },
-            { name: 'United States of America', currency: 'USD', symbol: '$', units: '¢', quantity: 10, value: 100, fraction: 100, fee: 30 }
-        ];
-
-        res.send({ list: plans });
     }
 
     findAccount(req: Request, res: Response, next: NextFunction) {

@@ -1,15 +1,12 @@
 <mat-card role="form">
-    <form (ngSubmit)="register()" [formGroup]="accountForm" #registrationForm="ngForm">
-        <mat-form-field>
-            <input matInput
-                   id="emailAddress"
-                   name="emailAddress"
-                   placeholder="Your email address"
-                   formControlName="emailAddress"
-            />
+    <form fxLayout="row" fxLayoutGap="10px" (ngSubmit)="register()" [formGroup]="accountForm" #registrationForm="ngForm">
+        <mat-form-field fxFlex>
+            <input matInput placeholder="Your email address" formControlName="emailAddress" />
             <mat-error *ngIf="accountForm.controls['emailAddress'].hasError('required')">This field is required</mat-error>
             <mat-error *ngIf="accountForm.controls['emailAddress'].hasError('pattern')">A valid email address is required</mat-error>
         </mat-form-field>
-        <button type="submit" mat-raised-button color="primary" [disabled]="accountForm.pristine || accountForm.invalid || saving">Get Started</button>
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <button mat-raised-button type="submit" color="primary" [disabled]="accountForm.pristine || accountForm.invalid || saving">Get Started</button>
+        </div>
     </form>
 </mat-card>

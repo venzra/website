@@ -12,6 +12,14 @@ defineSupportCode(({ Given, When, Then }) => {
         expect(actualKeys, 'Response keys do not match expectation').to.have.members(expectedKeys);
 
         expectedKeys.map((key) => {
+            let check;
+            if (typeof expected[key] === 'string') {
+                check = expected[key].match(/\[(\d+)\]/) || expected[key];
+                if (check instanceof Array) {
+                    expected[key] = expected[key].replace(check[0], '');
+                }
+            }
+
             switch (expected[key]) {
                 case 'OBJECT_ID':
                     expect(actual[key]).to.match(/^[0-9A-F]{24}$/i);
@@ -21,6 +29,7 @@ defineSupportCode(({ Given, When, Then }) => {
                     break;
                 case 'ARRAY':
                     expect(actual[key]).to.be.an.instanceof(Array);
+                    expect(actual[key]).to.have.length(check[1]);
                     break;
                 case 'OBJECT':
                     expect(actual[key]).to.be.an('object');
@@ -31,42 +40,39 @@ defineSupportCode(({ Given, When, Then }) => {
         });
     };
 
-    Then(/^the response from the "([^"]*)" request should be(?: a)? (\d+)(?: error)?$/, function (historyName, statusCode) {
+    Then(/^the status returned from the "([^"]*)" request should be (201|202)$/, function (historyName, statusCode) {
         return Promise.resolve(this.getHistory(historyName))
-            .then((history) => expect(history.status).to.equal(statusCode));
+            .then((history) => expect(history.status).to.equal(parseInt(statusCode)));
     });
 
-    Then(/^the(?: "([^"]*)")? response from the "([^"]*)" request equals "([^"]*)"/, function (responseObject, historyName, expectedResponse) {
+    Then(/^the status returned from the "([^"]*)" request should be a (401|403|404) error$/, function (historyName, statusCode) {
         return Promise.resolve(this.getHistory(historyName))
-            .then((history) => history.response)
-            .then((response) => expect(expectedResponse).to.equal(response));
+            .then((history) => expect(history.status).to.equal(parseInt(statusCode)));
     });
 
-    Then(/^the response(?: path "([^"]*)")? from the "([^"]*)" request contains:/, function (responsePath, historyName, expectedData) {
+    Then(/^(?:there should be a (200|400|500) (?:response|error) from )?the "([^"]*)" request that(?: has (?:a|an) "([^"]*)" field and row (\d+))? contains:$/, function (statusCode, historyName, expectedField, expectedRecord, expectedData) {
+        expectedData = this.getHashes(expectedData);
+
+        return Promise.resolve(this.getHistory(historyName))
+            .then((history) => Promise.all([
+                    statusCode ? expect(history.status).to.equal(parseInt(statusCode)) : true,
+                    checkValues(expectedData[0], expectedField && expectedRecord ? history.response[expectedField][expectedRecord - 1] : history.response)
+                ])
+            );
+    });
+
+    Then(/^the response path "([^"]*)" from the "([^"]*)" request contains:/, function (responsePath, historyName, expectedData) {
         expectedData = this.getHashes(expectedData);
 
         return Promise.resolve(this.getHistory(historyName))
             .then((history) => history.response)
             .then((response) => {
-                response = responsePath ? responsePath.split('.').reduce((response, pathItem) => response[pathItem], response) : response;
+                response = responsePath.split('.').reduce((response, pathItem) => response[pathItem], response);
                 if (response instanceof Array) {
                     return Promise.all(expectedData.map((expected, idx) => checkValues(expected, response[idx])));
                 } else {
                     return checkValues(expectedData[0], response);
                 }
-            });
-    });
-
-    Then(/^the response from the "([^"]*)" request should be(?: a (\d+) error that contains)?:$/, function (historyName, statusCode, expectedData) {
-        expectedData = this.getHashes(expectedData);
-
-        return Promise.resolve(this.getHistory(historyName))
-            .then((history) => {
-                if (statusCode) {
-                    expect(history.status).to.equal(statusCode);
-                }
-
-                return checkValues(expectedData[0], history.response);
             });
     });
 
@@ -78,7 +84,7 @@ defineSupportCode(({ Given, When, Then }) => {
                     .find((cookie) => cookie[cookieName] !== undefined);
 
                 if (negative) {
-                    if(targetCookie) {
+                    if (targetCookie) {
                         expect(targetCookie[cookieName], `Cookie called ${cookieName} expected to be empty`).to.equal('');
                         expect(new Date(targetCookie.Expires).getTime()).to.equal(0);
                     }

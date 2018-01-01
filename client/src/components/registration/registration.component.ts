@@ -9,13 +9,12 @@ import { SubscriptionService } from '../../services/subscription.service';
 const EMAIL_REGEX = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
 @Component({
-    selector: 'registration-dialog',
     templateUrl: './registration.dialog.html'
 })
-export class RegistrationDialog {
-    constructor(private dialogRef: MatDialogRef<RegistrationDialog>) {
-        // empty constructor
-    }
+export class RegistrationDialogComponent {
+    constructor(
+        private dialogRef: MatDialogRef<RegistrationDialogComponent>
+    ) { }
 
     confirm(): void {
         this.dialogRef.close();
@@ -23,8 +22,9 @@ export class RegistrationDialog {
 }
 
 @Component({
-    selector: 'registration-form',
-    templateUrl: './registration.component.html'
+    selector: 'venzra-registration',
+    templateUrl: './registration.component.html',
+    styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent {
 
@@ -58,7 +58,7 @@ export class RegistrationComponent {
 
         this.subscriptionService
             .createAccount(this.account)
-            .then(() => this.dialog.open(RegistrationDialog))
+            .then(() => this.dialog.open(RegistrationDialogComponent))
             .catch(() => this.snackbar.open('Registration failed, please try again', 'OK'))
             .then(() => this.saving = false);
     }

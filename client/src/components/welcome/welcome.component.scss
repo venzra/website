@@ -1,0 +1,97 @@
+@import '../../../styles';
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+.hero {
+    padding: 0 20px;
+    height: 100%;
+    color: #fff;
+    background-color: mat-color($venzra-app-primary);
+
+    > div {
+        position: relative;
+    }
+
+    * {
+        white-space: nowrap;
+    }
+
+    .stage {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: rotate(20deg);
+        color: rgba(255, 255, 255, 0.53);
+
+        a {
+            font-size: 18px;
+        }
+    }
+
+    @media ($mat-xsmall) {
+        height: 520px;
+    }
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 40px;
+
+    @media ($mat-xsmall) {
+        padding: 60px 20px;
+    }
+}
+
+.scroll {
+    opacity: 0.5;
+
+    @media ($mat-xsmall) {
+        display: none;
+    }
+}
+
+.s48 {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+
+    @media ($mat-xsmall) {
+        font-size: 48px;
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.steps {
+    header {
+        width: 4rem;
+        height: 4rem;
+        margin: 0 0 2rem 0;
+
+        color: #fff;
+        border-radius: 999px;
+        background-color: mat-color($venzra-app-primary);
+
+        h2 {
+            text-align: center;
+            padding: 1rem 0 0 0;
+            font-size: 2rem;
+            font-weight: 200;
+        }
+    }
+}
+
+venzra-registration {
+    width: 480px;
+
+    @media ($mat-xsmall) {
+        width: 95%;
+    }
+}
+
+hr {
+    border-top: 2px solid mat-color($venzra-app-primary);
+    width: 100%;
+}

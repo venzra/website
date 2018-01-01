@@ -5,7 +5,7 @@ Feature: Access a list of plans that a user will be able to subscribe to after r
     Given I make a POST request to the API endpoint "/api/v1/registration/create" as "registration" using:
       | invalid     |
       | bad request |
-    Then the response from the "registration" request should be a 400 error that contains:
+    Then there should be a 400 error from the "registration" request that contains:
       | error       |
       | Bad Request |
 
@@ -14,7 +14,7 @@ Feature: Access a list of plans that a user will be able to subscribe to after r
     When I make a POST request to the API endpoint "/api/v1/registration/create" as "registration" using:
       | identity                          |
       | registration-create-one@venzra.io |
-    Then the response from the "registration" request contains:
+    Then there should be a 200 response from the "registration" request that contains:
       | _id       | identity                          | status     | created   | updated   |
       | OBJECT_ID | registration-create-one@venzra.io | REGISTERED | DATE_TIME | DATE_TIME |
 
@@ -23,6 +23,6 @@ Feature: Access a list of plans that a user will be able to subscribe to after r
     When I make a POST request to the API endpoint "/api/v1/registration/create" as "registration" using:
       | identity                          |
       | REGISTRATION-CREATE-ONE@VENZRA.IO |
-    Then the response from the "registration" request contains:
+    Then there should be a 200 response from the "registration" request that contains:
       | _id       | identity                          | status   | created   | updated   |
       | OBJECT_ID | registration-create-one@venzra.io | RECOVERY | DATE_TIME | DATE_TIME |

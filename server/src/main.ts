@@ -1,4 +1,5 @@
 import * as express from 'express';
+import * as fs from 'fs';
 import * as http from 'http';
 import * as mongoose from 'mongoose';
 import * as morgan from 'morgan';
@@ -8,6 +9,7 @@ import { json } from 'body-parser';
 
 import { errorHandler } from './middleware/error-handler';
 import { RegistrationController } from './controllers/registration';
+import { SubscriptionController } from './controllers/subscription';
 
 require('mongoose').Promise = global.Promise;
 
@@ -27,6 +29,14 @@ router.use(morgan(':remote-addr - BASIC LOG - [:date[iso]] - ":method :url" :sta
 
 app.use('/api/v1/', router);
 app.use(express.static(path.join(__dirname, '../client')));
+app.route('*').get((req, res, next) => {
+    if(req.url.startsWith('/assets')) {
+        return next();
+    }
+
+    res.type('html');
+    res.sendfile(path.join(__dirname, '../client/index.html'));
+});
 
 /*
  * Database connection
@@ -50,6 +60,7 @@ mongoose
  * Start controllers
  */
 const registration = new RegistrationController(router);
+const subscription = new SubscriptionController(router);
 
 app.use(errorHandler);
 

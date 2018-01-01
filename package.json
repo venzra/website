@@ -62,6 +62,7 @@
         "istanbul": "0.4.5",
         "nock": "9.1.5",
         "nodemon": "1.14.6",
+        "normalize.css": "7.0.0",
         "protractor": "5.2.2",
         "protractor-cucumber-framework": "4.1.1",
         "remap-istanbul": "0.9.5",

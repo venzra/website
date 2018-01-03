@@ -17,20 +17,8 @@
         white-space: nowrap;
     }
 
-    .stage {
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: rotate(20deg);
-        color: rgba(255, 255, 255, 0.53);
-
-        a {
-            font-size: 18px;
-        }
-    }
-
     @media ($mat-xsmall) {
-        height: 480px;
+        height: 450px;
     }
 }
 

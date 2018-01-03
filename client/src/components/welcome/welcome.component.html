@@ -1,14 +1,18 @@
 
-<div class="hero" fxLayout="column" fxLayoutAlign="start center">
-    <div fxFlex="20%"></div>
-    <div fxLayout="column" fxLayoutAlign="start center" fxFlex>
+<div class="hero" fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="column" fxLayoutAlign="start center" fxFlex.xs="90%" fxFlex.sm="70%" fxFlex="50%">
         <h1 fxHide="true">VENZRA</h1>
-        <div class="stage"><a mat-button routerLink="/alpha">alpha</a></div>
         <img src="/assets/logo/white/venzra-logo-lg.png" title="Welcome to Venzra">
-        <h2>The ecommerce platform for the heart of your business</h2>
+        <h2>start selling online today</h2>
         <venzra-registration></venzra-registration>
         <p class="mat-caption">No subscription required, sign-up with just your email address</p>
-        <a mat-icon-button class="scroll" routerLink="."><mat-icon>keyboard_arrow_down</mat-icon></a>
+        <div class="taglines" fxLayout="column" fxLayoutAlign="center center" fxHide.xs="true" fxHide.sm="true">
+            <div class="mat-subheading-1">Your ecommerce platform</div>
+            <div class="mat-subheading-1">Free setup options to get you started</div>
+            <div class="mat-subheading-1">Use to sell from the high street or your home</div>
+            <div class="mat-subheading-1">Securely puts you in control of your revenue stream</div>
+        </div>
+        <mat-icon class="scroll">keyboard_arrow_down</mat-icon>
     </div>
 </div>
 
@@ -33,7 +37,7 @@
     <article fxLayout.xs="column" fxLayout="row" fxLayoutGap="20px">
         <div fxLayout="column" fxLayoutAlign="center center" fxFlex.xs="auto" fxFlex fxFlexOrder="2" fxHide.xs="true" fxHide="false">
             <mat-icon class="s48" color="primary">apps</mat-icon>
-            <h2>Simple</h2>
+            <h2>Tier-less</h2>
         </div>
         <div fxFlex.xs="auto" fxFlex>
             <h3 class="mat-headline" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
@@ -49,7 +53,7 @@
     <article fxLayout.xs="column" fxLayout="row" fxLayoutGap="20px">
         <div fxLayout="column" fxLayoutAlign="center center" fxFlex.xs="auto" fxFlex fxHide.xs="true" fxHide="false">
             <mat-icon class="s48" color="primary">shop_two</mat-icon>
-            <h2>Startup or Small Business</h2>
+            <h2>Startup or SME</h2>
         </div>
         <div fxFlex.xs="auto" fxFlex>
             <h3 class="mat-headline" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
@@ -62,43 +66,82 @@
         </div>
     </article>
 
+    <article fxLayout.xs="column" fxLayout="row" fxLayoutGap="20px">
+        <div fxLayout="column" fxLayoutAlign="center center" fxFlex.xs="auto" fxFlex fxFlexOrder="2" fxHide.xs="true" fxHide="false">
+            <mat-icon class="s48" color="primary">loyalty</mat-icon>
+            <h2>Rewards</h2>
+        </div>
+        <div fxFlex.xs="auto" fxFlex>
+            <h3 class="mat-headline" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+                <mat-icon fxShow.xs="true" fxShow="false" color="primary">loyalty</mat-icon>
+                <span>Freebies and discounts</span>
+            </h3>
+            <h4 class="mat-title">Recognition for staying with us</h4>
+            <p>We value the loyalty of our customers, the longer you are with us and the more sales you make will entitle you to benefits such as reduced transaction fees, discounted subscription charges, credit to your account or free activation of features of your choice.</p>
+            <p>During our Alpha phase we you can sign up to a subscription for half the normal cost, this reduced rate is for the entire time you are with us and applies to any of the features you add to your package. So sign up for a subscription early before the Alpha period ends later this year to get this unique offer.</p>
+        </div>
+    </article>
+
     <hr />
 
-    <article fxLayout.xs="column" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start">
-        <div class="steps" fxLayout="column" fxLayoutAlign="start center" fxFlex.xs="auto" fxFlex="33%">
-            <header><h2>1</h2></header>
-            <h3>Setup a store front</h3>
-            <p>Creating an account is easy, just provide your email address and follow the instructions in the email we send you. Then add details on how you want to be paid and setup any custom information about your store via our admin portal.</p>
+    <article fxLayout="column" fxLayoutGap="40px" fxLayoutAlign="center center">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h2 class="mat-headline">Getting started</h2>
+            <p>It is as simple as 1, 2, 3 to get your store up and running, check out our guides section for more information or contact us.</p>
         </div>
 
-        <div class="steps" fxLayout="column" fxLayoutAlign="start center" fxFlex.xs="auto" fxFlex="33%">
-            <header><h2>2</h2></header>
-            <h3>Market your products</h3>
-            <p>Once you have setup your core account information add the products you want to sell on your store. You can provide images and descriptions about your products, and with a subscription you can also manage stock details.</p>
-        </div>
+        <div fxLayout.xs="column" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start">
+            <div class="steps" fxLayout="column" fxLayoutAlign="start center" fxFlex.xs="auto" fxFlex="33%">
+                <header><h2>1</h2></header>
+                <h3>Register and setup store</h3>
+                <p>Creating an account is easy, just provide your email address and follow the instructions in the email we send you. Then add details on how you want to be recieve payouts and setup any custom information about your store via our admin portal.</p>
+            </div>
 
-        <div class="steps" fxLayout="column" fxLayoutAlign="start center" fxFlex.xs="auto" fxFlex="33%">
-            <header><h2>3</h2></header>
-            <h3>Manage consumer sales</h3>
-            <p>Your store is online and customers can begin making purchases. But to reach your potential you will need to advertise, we support effective SEO options, however there are many ways today to advertise your online store and we can help recommend some tried and tested methods.</p>
+            <div class="steps" fxLayout="column" fxLayoutAlign="start center" fxFlex.xs="auto" fxFlex="33%">
+                <header><h2>2</h2></header>
+                <h3>Market your products</h3>
+                <p>Once you have setup your core account information add the products you want to sell on your store. You can provide images and descriptions about your products, and with a subscription you can also manage stock details.</p>
+            </div>
+
+            <div class="steps" fxLayout="column" fxLayoutAlign="start center" fxFlex.xs="auto" fxFlex="33%">
+                <header><h2>3</h2></header>
+                <h3>Manage consumer sales</h3>
+                <p>Your store is online and customers can begin making purchases. But to reach your potential you will need to advertise, we support effective SEO options, however there are many ways today to advertise your online store and we can help recommend some tried and tested methods.</p>
+            </div>
         </div>
     </article>
 
     <hr />
 
     <article fxLayout.xs="column" fxLayout="row" fxLayoutGap="20px">
-        <div fxLayout="column" fxLayoutAlign="center center" fxFlex.xs="auto" fxFlex fxFlexOrder="2" fxHide.xs="true" fxHide="false">
-            <mat-icon class="s48" color="primary">loyalty</mat-icon>
-            <h2>Simple</h2>
+        <div fxLayout="column" fxLayoutAlign="center center" fxFlex.xs="auto" fxFlex fxHide.xs="true" fxHide="false">
+            <mat-icon class="s48" color="primary">lightbulb_outline</mat-icon>
+            <h2>Smart</h2>
         </div>
         <div fxFlex.xs="auto" fxFlex>
             <h3 class="mat-headline" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
-                <mat-icon fxShow.xs="true" fxShow="false" color="primary">loyalty</mat-icon>
+                <mat-icon fxShow.xs="true" fxShow="false" color="primary">lightbulb_outline</mat-icon>
                 <span>Change anything at anytime</span>
             </h3>
-            <h4 class="mat-title">Feel free to try it out and leave it out</h4>
+            <h4 class="mat-title">Feel free to try it out or leave it out</h4>
             <p>You can add and remove features whenever you like, there is no minimum requirement. If you think a feature might help and want to try it out, or if you are just wondering what something does, simply toggle it on and off subject to any pro rata fees associated.</p>
             <p>Even closing your account is simple and can be done anytime, subject to any outstanding payments. However loyalty is rewarded so you may want to consider any changes to expect if you were to then rejoin.</p>
+        </div>
+    </article>
+
+    <article fxLayout.xs="column" fxLayout="row" fxLayoutGap="20px">
+        <div fxLayout="column" fxLayoutAlign="center center" fxFlex.xs="auto" fxFlex fxFlexOrder="2" fxHide.xs="true" fxHide="false">
+            <mat-icon class="s48" color="primary">lock</mat-icon>
+            <h2>Secure</h2>
+        </div>
+        <div fxFlex.xs="auto" fxFlex>
+            <h3 class="mat-headline" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
+                <mat-icon fxShow.xs="true" fxShow="false" color="primary">lock</mat-icon>
+                <span>Secure cloud architecture</span>
+            </h3>
+            <h4 class="mat-title">Keeping you and your customers safe</h4>
+            <p>Our cloud platform is built security first, with frequent releases to patch emerging issues. If you think you have found an issue when using the software please contact us asap and we will review and rectify the issue as required.</p>
+            <p>Customers are more aware of security and as such demand a higher level of trust, we work with security experts to keep your revenue stream secure and your customers data protected. Giving you peace of mind in knowing we will keep up with the security and performance needs of the modern world, ensuring that your customers are protected from online threats.</p>
         </div>
     </article>
 
@@ -114,7 +157,7 @@
             </h3>
             <h4 class="mat-title">Do what you want when you want</h4>
             <p>We do not have any limits on how many products or images you can add or the users that can interact with your site.</p>
-            <p>To ensure your store can reach the maximum user base with the best performance they can receive, we do impose some restrictions on size of files uploaded.</p>
+            <p>To ensure your store can reach the maximum user base with the best performance they can receive, we do impose some restrictions on size of files uploaded. All data is owned and managed by you, with time limited auditing of activities and automated data backups.</p>
         </div>
     </article>
 
@@ -126,11 +169,39 @@
         <div fxFlex.xs="auto" fxFlex>
             <h3 class="mat-headline" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
                 <mat-icon fxShow.xs="true" fxShow="false" color="primary">new_releases</mat-icon>
-                <span>Flowing with technology</span>
+                <span>Proven design and experience</span>
             </h3>
-            <h4 class="mat-title">Built on the latest technology frameworks</h4>
-            <p>Our software is built on the fastest and most recent web technologies, this means we can react fast to changing technologies and ensure support for the future of online transactions. Build with Agile best practices and continuous delivery platforms all ensure the best solutions are powering your online presence.</p>
-            <p>This means you can be comfortable in knowing we will keep up with security and performance needs of the modern world, ensuring thats your customers are protected from online threats. If you think you have found an issue when using the software please contact us asap and we will review and rectify the issue if deemed to be under our supported conditions.</p>
+            <h4 class="mat-title">Keeping your platform fresh</h4>
+            <p>Building an online platform for users is a complex business, building a platform the is simple and easy to use is even harder. We release changes as soon as they are ready and as such you instantly gain access to the latest features available.</p>
+            <p>We have taken our time to build a robust and modern plaform with inspiration from leading technology and retail businesses. You can be sure we are including the best of social media aspects and mobile consumer access when selecting to use Venzra to power your online store.</p>
+        </div>
+    </article>
+
+    <hr />
+
+    <article fxLayout="column" fxLayoutGap="40px" fxLayoutAlign="center center">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h2 class="mat-headline">The latest technologies</h2>
+            <p>We use the most up to date software frameworks and Agile practices to build our software, providing you with the best in class for performance and scalability.</p>
+        </div>
+
+        <div class="external-links" fxLayout="row" fxLayoutWrap>
+            <a href="https://www.angular.io" target="_blank" fxLayout="column" fxLayoutAlign="center center" fxFlex="50%" fxFlex.gt-sm="25%">
+                <img src="/assets/external/angular-logo.png" title="Angular" />
+                <h5>angular.io</h5>
+            </a>
+            <a href="https://www.nodejs.org" target="_blank" fxLayout="column" fxLayoutAlign="center center" fxFlex="50%" fxFlex.gt-sm="25%">
+                <img src="/assets/external/node-logo.png" title="Nodejs" />
+                <h5>nodejs.org</h5>
+            </a>
+            <a href="https://www.mongodb.com" target="_blank" fxLayout="column" fxLayoutAlign="center center" fxFlex="50%" fxFlex.gt-sm="25%">
+                <img src="/assets/external/mongo-logo.png" title="Mongo DB" />
+                <h5>mongodb.com</h5>
+            </a>
+            <a href="https://aws.amazon.com" target="_blank" fxLayout="column" fxLayoutAlign="center center" fxFlex="50%" fxFlex.gt-sm="25%">
+                <img src="/assets/external/aws-logo.png" title="AWS" />
+                <h5>aws.amazon.com</h5>
+            </a>
         </div>
     </article>
 

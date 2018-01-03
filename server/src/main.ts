@@ -35,7 +35,7 @@ app.route('*').get((req, res, next) => {
     }
 
     res.type('html');
-    res.sendfile(path.join(__dirname, '../client/index.html'));
+    res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
 /*

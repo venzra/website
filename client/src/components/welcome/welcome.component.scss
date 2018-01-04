@@ -65,15 +65,17 @@
     header {
         width: 4rem;
         height: 4rem;
-        margin: 0 0 2rem 0;
+        margin: 0 0 1rem 0;
 
         color: #fff;
         border-radius: 999px;
         background-color: mat-color($venzra-app-primary);
 
-        h2 {
+        h2, mat-icon {
             text-align: center;
             padding: 1rem 0 0 0;
+            width: 2em;
+            height: 2em;
             font-size: 2rem;
             font-weight: 200;
         }
@@ -83,6 +85,10 @@
 hr {
     border-top: 2px solid mat-color($venzra-app-primary);
     width: 100%;
+}
+
+.features {
+    margin-bottom: 10px;
 }
 
 .external-links {

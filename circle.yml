@@ -7,7 +7,6 @@ jobs:
       - image: circleci/mongo:3.4
     environment:
       - NODE_ENV: test
-    resource_class: medium
     steps:
       - checkout
       - restore_cache:
@@ -45,7 +44,6 @@ jobs:
   deploy:
     docker:
       - image: circleci/node:8
-    resource_class: medium
     steps:
       - checkout
       - restore_cache:

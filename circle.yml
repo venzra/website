@@ -11,11 +11,11 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ .Branch }}
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Notify build started
           command: |
-            BUILD=$CIRCLE_BRANCH-$CIRCLE_BUILD_NUM
+            BUILD=$CIRCLE_BRANCH-${CIRCLE_SHA1:0:7}
             curl -H "Content-Type: application/json" \
             -d '{ "release": "'$BUILD'" }' \
             -X POST https://api-pipeline.dashboardhub.io/environments/c6631f90-de59-11e7-baca-539d2ad633e4/deployed/c66346a0-de59-11e7-baca-539d2ad633e4/startBuild
@@ -31,11 +31,74 @@ jobs:
       - run:
           name: Notify build completed
           command: |
-            BUILD=$CIRCLE_BRANCH-$CIRCLE_BUILD_NUM
+            BUILD=$CIRCLE_BRANCH-${CIRCLE_SHA1:0:7}
             curl -H "Content-Type: application/json" \
             -d '{ "release": "'$BUILD'" }' \
             -X POST https://api-pipeline.dashboardhub.io/environments/c6631f90-de59-11e7-baca-539d2ad633e4/deployed/c66346a0-de59-11e7-baca-539d2ad633e4/finishBuild
       - save_cache:
-          key: dependency-cache-{{ .Branch }}
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
+      - store_artifacts:
+          path: coverage
+
+  deploy:
+    docker:
+      - image: circleci/node:8
+    resource_class: medium
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: echo 'export AWS_S3_PATH=Website/'${CIRCLE_BRANCH}'/'${CIRCLE_SHA1:0:7}'.zip' >> $BASH_ENV
+      - run: sudo apt-get update
+      - run: sudo apt-get install python3 python3-pip
+      - run: sudo pip3 install awscli --upgrade
+      - run:
+          name: Notify deploy start
+          command: |
+            BUILD=$CIRCLE_BRANCH-${CIRCLE_SHA1:0:7}
+            curl -H "Content-Type: application/json" \
+            -d '{ "release": "'$BUILD'" }' \
+            -X POST https://api-pipeline.dashboardhub.io/environments/c6631f90-de59-11e7-baca-539d2ad633e4/deployed/c66346a0-de59-11e7-baca-539d2ad633e4/startDeploy
+      - run:
+          name: Create deployment
+          command: npm run deploy
+      - run:
+          name: Publish release to S3
+          command: |
+            aws s3api put-object --region eu-west-1 --bucket releases.venzra.com --key "${AWS_S3_PATH}" --body website.zip
+      - run:
+          name: Create or update application
+          command: |
+            git checkout .aws/config/beanstalk.json
+            sed -i 's|{{ DatabaseUri }}|'${DEPLOY_DB}'|g' .aws/config/beanstalk.json
+            sed -i 's|{{ ReleaseVersion }}|'${AWS_S3_PATH}'|g' .aws/config/beanstalk.json
+            (aws cloudformation create-stack --stack-name "website-app-production" --template-body "file://.aws/templates/beanstalk.template" --parameters "file://.aws/config/beanstalk.json" --region eu-west-1 --capabilities CAPABILITY_IAM \
+                && aws cloudformation wait stack-create-complete --stack-name "website-app-production" --region eu-west-1) \
+            || (aws cloudformation update-stack --stack-name "website-app-production" --template-body "file://.aws/templates/beanstalk.template" --parameters "file://.aws/config/beanstalk.json" --region eu-west-1 --capabilities CAPABILITY_IAM \
+                && aws cloudformation wait stack-update-complete --stack-name "website-app-production" --region eu-west-1)
+            git checkout .aws/config/beanstalk.json
+          no_output_timeout: 20m
+      - run:
+          name: Notify deploy completed
+          command: |
+            BUILD=$CIRCLE_BRANCH-${CIRCLE_SHA1:0:7}
+            curl -H "Content-Type: application/json" \
+            -d '{ "release": "'$BUILD'" }' \
+            -X POST https://api-pipeline.dashboardhub.io/environments/c6631f90-de59-11e7-baca-539d2ad633e4/deployed/c66346a0-de59-11e7-baca-539d2ad633e4/finishDeploy
+      - store_artifacts:
+          path: website.zip
+
+workflows:
+  version: 2
+
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: /^(master)$/

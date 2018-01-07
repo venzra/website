@@ -19,6 +19,7 @@ const router: express.Router = express();
 /*
  * Configure security elements
  */
+app.enable('trust proxy');
 app.disable('x-powered-by');
 
 /*
@@ -42,7 +43,7 @@ app.route('*').get((req, res, next) => {
  * Database connection
  */
 const mongo = {
-    uri: `mongodb://${process.env.DB_URI || 'localhost/venzra'}`,
+    uri: process.env.DB_URI,
     options: {
         useMongoClient: true,
         socketTimeoutMS: 0,

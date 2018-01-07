@@ -1,5 +1,4 @@
 import * as express from 'express';
-import * as fs from 'fs';
 import * as http from 'http';
 import * as mongoose from 'mongoose';
 import * as morgan from 'morgan';
@@ -31,7 +30,7 @@ router.use(morgan(':remote-addr - BASIC LOG - [:date[iso]] - ":method :url" :sta
 app.use('/api/v1/', router);
 app.use(express.static(path.join(__dirname, '../client')));
 app.route('*').get((req, res, next) => {
-    if(req.url.startsWith('/assets')) {
+    if (req.url.startsWith('/assets')) {
         return next();
     }
 
@@ -43,7 +42,7 @@ app.route('*').get((req, res, next) => {
  * Database connection
  */
 const mongo = {
-    uri: process.env.DB_URI,
+    uri: process.env['DB_URI'],
     options: {
         useMongoClient: true,
         socketTimeoutMS: 0,

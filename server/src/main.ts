@@ -44,7 +44,6 @@ app.route('*').get((req, res, next) => {
 const mongo = {
     uri: process.env['DB_URI'],
     options: {
-        useMongoClient: true,
         socketTimeoutMS: 0,
         keepAlive: 120,
         reconnectTries: 30,

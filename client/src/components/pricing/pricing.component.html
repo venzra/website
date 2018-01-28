@@ -1,8 +1,7 @@
 
 <div class="hero" fxLayout="row" fxLayoutAlign="center center">
-    <div fxLayout="column" fxLayoutAlign="start center" fxFlex.xs="90%" fxFlex.sm="70%" fxFlex="50%">
-        <h1>Pricing</h1>
-        <h2>Startup or Small Business. Pay as you grow.</h2>
+    <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px" fxFlex.xs="90%" fxFlex.sm="70%" fxFlex="50%">
+        <h1 class="mat-display-1">Pricing</h1>
         <venzra-registration></venzra-registration>
         <p class="mat-caption">No subscription required, sign-up with just your email address</p>
     </div>
@@ -10,14 +9,41 @@
 
 <div class="content-container" fxLayout="column" fxLayoutGap.xs="20px" fxLayoutGap="40px">
 
-    <section>
-        <h2>Types of account</h2>
-        <p>There are only two types of accounts those who have a subscription and those who do not have a subscription.</p>
-        <p>Subscription accounts have a commitment to the current term they are signed up for, however that commitment is only for the base package any additional features are then only charged for while activated.</p>
-    </section>
 
-    <section>
-        <h2>Subscription options</h2>
+    <article fxLayout="column" fxLayoutGap="40px">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h2 class="mat-headline">Now in Alpha</h2>
+            <p>We are proud to be launching Venzra, currently into Alpha with our core functionality now working and rapidly developing new capabilities.</p>
+        </div>
+
+        <div fxLayout.xs="column" fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="space-between start">
+            <div class="steps" fxLayout="column" fxLayoutAlign="start center" fxFlex.xs="auto" fxFlex="33%">
+                <header><mat-icon>money_off</mat-icon></header>
+                <h3>Half price subscription</h3>
+                <p>Half price offer applies to subscriptions and includes future realised feature pricing, transaction fees are not effected, however cancellation of a subscription will remove access to this offer if it is no longer generally available.</p>
+            </div>
+
+            <div class="steps" fxLayout="column" fxLayoutAlign="start center" fxFlex.xs="auto" fxFlex="33%">
+                <header><mat-icon>event_seat</mat-icon></header>
+                <h3>VIP treatment</h3>
+                <p>As an early adopter of our service you are special to us and we want to make sure you are looked after, so if you need anything in particular that would normally require additional support we are doing these things for free right now. However, bear with us as we are also working hard on refinements for you.</p>
+            </div>
+
+            <div class="steps" fxLayout="column" fxLayoutAlign="start center" fxFlex.xs="auto" fxFlex="33%">
+                <header><mat-icon>feedback</mat-icon></header>
+                <h3>Feedback wanted</h3>
+                <p>During our Alpha we ask that if you find issues with functionality, have trouble with finding how to perform tasks you require or have suggestions to improve existing features or workflows that you send us a message. Perhaps even get a little reward...</p>
+            </div>
+        </div>
+    </article>
+
+    <hr />
+
+    <article fxLayout="column" fxLayoutGap="40px">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h2 class="mat-headline">Subscription options</h2>
+            <p>There are only two types of accounts those who have a subscription and those who do not have a subscription. Customers wanting a cheap way to get a shop up an running on the internet will find our no commitment, subscription free offering a great way to try us out and start making sales online. Once you have begun to establish your account having a subscription give access to more features and lower transaction fees, these accounts have a commitment to the chosen term they are signed up for, however that commitment is only for the base package any additional features are only charged for while activate.</p>
+        </div>
 
         <div fxLayout.xs="column" fxLayout.sm="column" fxLayout="row" fxLayoutGap="20px">
             <mat-card fxFlex>
@@ -88,13 +114,30 @@
                 </mat-card-content>
             </mat-card>
         </div>
-    </section>
+    </article>
 
-    <section>
-        <h2>Included features for either option</h2>
-        <p>Every account gains access to the following features, there are no restrictions depending on your account type, once signed up you can start using them all.</p>
+    <hr />
+
+    <article fxLayout="column" fxLayoutGap="40px">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h2 class="mat-headline">Included features for either option</h2>
+            <p>Every account gains access to the following features, there are no restrictions depending on your account type, once signed up you can start using them all.</p>
+        </div>
 
         <mat-accordion class="headers-align">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Security certificates</mat-panel-title>
+                    <mat-panel-description fxHide.xs="true">Included</mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <ul>
+                    <li>Data is held with in compliance of PCI-DSS requirements so you can be sure customer data is protected</li>
+                    <li>Every store gets free SSL certificate giving customers peace of mind when using your store</li>
+                    <li>Password encryption and automated security key cycling all taken care of by us</li>
+                </ul>
+            </mat-expansion-panel>
+
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>Personalisation</mat-panel-title>
@@ -173,11 +216,15 @@
                 </ul>
             </mat-expansion-panel>
         </mat-accordion>
-    </section>
+    </article>
 
-    <section fxHide.xs="true">
-        <h2>Optional features for an additional subscription cost</h2>
-        <p>These features are available at an extra cost, they allow you to customise your package.</p>
+    <hr />
+
+    <article fxLayout="column" fxLayoutGap="40px" fxHide.xs="true">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <h2 class="mat-headline">Optional features for an additional subscription cost</h2>
+            <p>These features are available at an extra cost, they allow you to customise your package.</p>
+        </div>
 
         <mat-accordion class="headers-align">
             <mat-expansion-panel>
@@ -185,7 +232,7 @@
                     <mat-panel-title>Stock management</mat-panel-title>
                     <mat-panel-description>
                         <div><span fxHide.xs="true">Coming soon (Q2 2018)</span></div>
-                        <span class="strike">{{ subscription.price * 5 | price: subscription.currency }} / {{ subscription.interval > 1 ? subscription.interval : '' }} {{ subscription.frequency }}</span>
+                        <del>{{ subscription.price * 5 | price: subscription.currency }} / {{ subscription.interval > 1 ? subscription.interval : '' }} {{ subscription.frequency }}</del>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
 
@@ -195,15 +242,13 @@
                     <li>Gallery of product images</li>
                 </ul>
             </mat-expansion-panel>
-        </mat-accordion>
 
-        <mat-accordion class="headers-align">
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>Custom store designs</mat-panel-title>
                     <mat-panel-description>
                         <div><span fxHide.xs="true">Coming soon (Q3 2018)</span></div>
-                        <span class="strike">{{ subscription.price * 10 | price: subscription.currency }} / {{ subscription.interval > 1 ? subscription.interval : '' }} {{ subscription.frequency }}</span>
+                        <del>{{ subscription.price * 10 | price: subscription.currency }} / {{ subscription.interval > 1 ? subscription.interval : '' }} {{ subscription.frequency }}</del>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
 
@@ -213,15 +258,13 @@
                     <li>Full customisation available with Venzra to build a store to your requirements (further quotation and costs)</li>
                 </ul>
             </mat-expansion-panel>
-        </mat-accordion>
 
-        <mat-accordion class="headers-align">
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>Events calendar</mat-panel-title>
                     <mat-panel-description>
                         <div><span fxHide.xs="true">Coming soon (Q4 2018)</span></div>
-                        <span class="strike">{{ subscription.price * 5 | price: subscription.currency }} / {{ subscription.interval > 1 ? subscription.interval : '' }} {{ subscription.frequency }}</span>
+                        <del>{{ subscription.price * 5 | price: subscription.currency }} / {{ subscription.interval > 1 ? subscription.interval : '' }} {{ subscription.frequency }}</del>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
 
@@ -231,31 +274,23 @@
                     <li>Schedule repeating store changes, product additions / removal  (e.g seasonal goods)</li>
                 </ul>
             </mat-expansion-panel>
-        </mat-accordion>
 
-        <mat-accordion class="headers-align">
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     <mat-panel-title>Domain management</mat-panel-title>
                     <mat-panel-description>
                         <div><span fxHide.xs="true">Coming soon (Q4 2018)</span></div>
-                        <span class="strike">from {{ subscription.price * 1 | price: subscription.currency }} / {{ subscription.interval > 1 ? subscription.interval : '' }} {{ subscription.frequency }}</span>
+                        <del>from {{ subscription.price * 1 | price: subscription.currency }} / {{ subscription.interval > 1 ? subscription.interval : '' }} {{ subscription.frequency }}</del>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
 
                 <ul>
                     <li>Register your own domain with email forwarding</li>
                     <li>Transfer a domain you already own to use</li>
-                    <li>Includes security (SSL) certificate for the chosen domain</li>
+                    <li>Including security (SSL) certificate for the chosen domain</li>
                 </ul>
             </mat-expansion-panel>
         </mat-accordion>
-    </section>
-
-    <section>
-        <h2>Subscription requests</h2>
-        <p>We are always listening to feedback and value your ideas. Recommend something you would like to see and if it fits with our product vision we will contact you.</p>
-        <p>If we implement a feature you recommend we will credit your account with up to 12 months of your subscription covered, even if your idea has been recommended by others.</p>
-    </section>
+    </article>
 
 </div>

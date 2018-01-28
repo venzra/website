@@ -14,11 +14,13 @@ import { VenzraRoutingModule } from './routing.module';
 import { PricePipe } from './filters/price.pipe';
 
 import { AppComponent } from './venzra.component';
-import { RegistrationComponent, RegistrationDialogComponent } from './components/registration/registration.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { GuidesComponent } from './components/guides/guides.component';
+import { TermsComponent } from './components/terms/terms.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { RegistrationConfirmationDialogComponent } from './components/registration/confirmation/confirmation.dialog';
 
 import { SubscriptionService } from './services/subscription.service';
 import { PlanListResolve, PlanService } from './services/plan.service';
@@ -28,10 +30,11 @@ import { PlanListResolve, PlanService } from './services/plan.service';
         PricePipe,
         AppComponent,
         RegistrationComponent,
-        RegistrationDialogComponent,
+        RegistrationConfirmationDialogComponent,
         WelcomeComponent,
         PricingComponent,
         GuidesComponent,
+        TermsComponent,
         NotFoundComponent
     ],
     imports: [
@@ -53,7 +56,7 @@ import { PlanListResolve, PlanService } from './services/plan.service';
         VenzraRoutingModule
     ],
     entryComponents: [
-        RegistrationDialogComponent
+        RegistrationConfirmationDialogComponent
     ],
     providers: [
         SubscriptionService,

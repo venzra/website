@@ -1,25 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef, MatSnackBar } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 
+import { RegistrationConfirmationDialogComponent } from './confirmation/confirmation.dialog';
 import { Registration } from '../../models/registration';
 
 import { SubscriptionService } from '../../services/subscription.service';
 
 const EMAIL_REGEX = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-
-@Component({
-    templateUrl: './registration.dialog.html'
-})
-export class RegistrationDialogComponent {
-    constructor(
-        private dialogRef: MatDialogRef<RegistrationDialogComponent>
-    ) { }
-
-    confirm(): void {
-        this.dialogRef.close();
-    }
-}
 
 @Component({
     selector: 'venzra-registration',
@@ -58,7 +46,7 @@ export class RegistrationComponent {
 
         this.subscriptionService
             .createAccount(this.account)
-            .then(() => this.dialog.open(RegistrationDialogComponent))
+            .then(() => this.dialog.open(RegistrationConfirmationDialogComponent, { width: '90%', maxWidth: '720px' }))
             .catch(() => this.snackbar.open('Registration failed, please try again', 'OK'))
             .then(() => this.saving = false);
     }

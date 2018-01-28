@@ -61,7 +61,7 @@ export const email = {
                 <table>
                     <tr style="background-color:#673ab7;">
                         <td class="centered" style="padding:3em;">
-                            <img src="http://cdn.venzra.io/logo/white/venzra-logo-md.png" alt="Venzra" title="Venzra" />
+                            <img src="https://www.venzra.com/assets/logo/white/venzra-logo-md.png" alt="Venzra" title="Venzra" />
                         </td>
                     </tr>
     `,

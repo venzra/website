@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Registration accepted</h1>
+<div mat-dialog-content fxLayout="column" fxLayoutGap="20px">
+    <h3>The following should help to complete your registration</h3>
+
+    <div fxLayout="row" fxLayoutGap="20px">
+        <mat-icon fxHide.xs>mood</mat-icon>
+        <div fxLayout="column" fxLayoutGap="5px">
+            <p class="mat-subheading-2">We have sent you an email</p>
+            <p>Please check your email account. Allow a few minutes for this to reach you.</p>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="20px">
+        <mat-icon fxHide.xs color="primary">check_circle</mat-icon>
+        <div fxLayout="column" fxLayoutGap="5px">
+            <p class="mat-subheading-2">Follow the email instructions</p>
+            <p>Once you have your email it will contain a link to conclude the registration with further information on how to get your account working for you.</p>
+        </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div fxLayout="row" fxLayoutGap="20px">
+        <mat-icon fxHide.xs>mood_bad</mat-icon>
+        <div fxLayout="column" fxLayoutGap="5px">
+            <p class="mat-subheading-2">If no email arrives</p>
+            <p>Do not worry just fill out the sign-up form again and we will send you another.</p>
+            <p class="mat-caption">Please note that each email contains a unique link, so if you sign up more than once only the most recent link will be valid.</p>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="20px">
+        <mat-icon fxHide.xs color="warn">help</mat-icon>
+        <div fxLayout="column" fxLayoutGap="5px">
+            <p class="mat-subheading-2">Still having problems?</p>
+            <p>Contact us and we will do all we can to help you get started.</p>
+        </div>
+    </div>
+</div>
+
+<div mat-dialog-actions fxLayoutAlign="end center">
+    <button mat-raised-button (click)="confirm()" color="primary">Close</button>
+</div>

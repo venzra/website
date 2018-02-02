@@ -5,18 +5,25 @@ import * as config from '../config';
 import { IAccountModel } from '../models/account';
 
 interface IActivationData {
-    subject: String;
-    marketingUrl: String;
-    managementUrl: String;
+    subject: string;
+    marketingUrl: string;
+    managementUrl: string;
     account: IAccountModel;
 }
 
+interface IContactData {
+    subject: string;
+    alias: string;
+    emailAddress: string;
+    message: string;
+}
+
 export const mailer = {
-    send: (subject: string, destination: string, message: string): Promise<SES.SendEmailResponse> => {
+    send: (subject: string, destination: string, message: string, origin = config.environment.replyEmail): Promise<SES.SendEmailResponse> => {
         const ses = new SES({ region: 'eu-west-1' });
 
         const request: SES.SendEmailRequest = {
-            Source: config.environment.replyEmail,
+            Source: origin,
             Destination: {
                 ToAddresses: [destination]
             },
@@ -67,7 +74,7 @@ export const email = {
     `,
 
     activation: (data: IActivationData): string => {
-        const validationUrl = `${data.managementUrl}/auth/activate/${data.account._id}`;
+        const validationUrl = `${data.managementUrl}/auth/activate/${data.account._id}?token=${data.account.validation.key}`;
 
         const template = `
                     <tr>
@@ -87,12 +94,40 @@ export const email = {
                     </tr>
                     <tr>
                         <td class="centered">
-                            <a class="btn" href="${validationUrl}?token=${data.account.validation.key}">Activate account</a>
+                            <a class="btn" href="${validationUrl}">Activate account</a>
                         </td>
                     </tr>
                     <tr>
                         <td class="centered">
-                            <a href="${validationUrl}?token=${data.account.validation.key}">${validationUrl}</a>
+                            <a href="${validationUrl}">${validationUrl}</a>
+                        </td>
+                    </tr>
+        `;
+
+        return email.header(data) + template + email.footer(data);
+    },
+
+    contact: (data: IContactData): string => {
+        const template = `
+                    <tr>
+                        <td>
+                            <h2>${data.subject}</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Alias: ${data.alias}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Email: ${data.emailAddress}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Message:</p>
+                            <pre>${data.message}</pre>
                         </td>
                     </tr>
         `;

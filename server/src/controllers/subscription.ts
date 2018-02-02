@@ -13,7 +13,7 @@ class SubscriptionController {
     }
 
     getPlans(req: Request, res: Response, next: NextFunction) {
-        const order = { name: 1 };
+        const order = { price: 1, name: 1 };
 
         PlanModel.count(null).exec()
             .then((total) =>

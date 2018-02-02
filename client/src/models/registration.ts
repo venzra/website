@@ -1,3 +1,3 @@
-export class Registration {
+export interface Registration {
     identity: string;
 }

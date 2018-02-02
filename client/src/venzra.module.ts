@@ -22,8 +22,10 @@ import { TermsComponent } from './components/terms/terms.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RegistrationConfirmationDialogComponent } from './components/registration/confirmation/confirmation.dialog';
 
+import { ContactService } from './services/contact.service';
 import { SubscriptionService } from './services/subscription.service';
 import { PlanListResolve, PlanService } from './services/plan.service';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
     declarations: [
@@ -34,6 +36,7 @@ import { PlanListResolve, PlanService } from './services/plan.service';
         WelcomeComponent,
         PricingComponent,
         GuidesComponent,
+        ContactComponent,
         TermsComponent,
         NotFoundComponent
     ],
@@ -59,6 +62,7 @@ import { PlanListResolve, PlanService } from './services/plan.service';
         RegistrationConfirmationDialogComponent
     ],
     providers: [
+        ContactService,
         SubscriptionService,
         PlanService,
         PlanListResolve

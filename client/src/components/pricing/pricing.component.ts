@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { ListModel } from '../../services/restful.service';
-import { Plan } from '../../services/plan.service';
+import { ListModel } from '../../models/list';
+import { Plan } from '../../models/plan';
 
 @Component({
     templateUrl: './pricing.component.html',

@@ -2,18 +2,10 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
-import { ListModel } from './restful.service';
+import { ListModel } from '../models/list';
+import { Plan } from '../models/plan';
 
 import 'rxjs/add/operator/toPromise';
-
-export class Plan {
-    reference: string;
-    name: string;
-    currency: string;
-    price: number;
-    interval: number;
-    frequency: string;
-}
 
 @Injectable()
 export class PlanService {

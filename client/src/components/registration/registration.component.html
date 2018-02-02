@@ -1,5 +1,5 @@
 <mat-card role="form">
-    <form fxLayout="row" fxLayoutGap="10px" (ngSubmit)="register()" [formGroup]="accountForm" #registrationForm="ngForm">
+    <form fxLayout="row" fxLayoutGap="10px" (ngSubmit)="register()" [formGroup]="accountForm">
         <mat-form-field fxFlex>
             <input matInput placeholder="Your email address" formControlName="emailAddress" />
             <mat-error *ngIf="accountForm.controls['emailAddress'].hasError('required')">This field is required</mat-error>

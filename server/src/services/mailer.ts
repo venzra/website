@@ -74,7 +74,7 @@ export const email = {
     `,
 
     activation: (data: IActivationData): string => {
-        const validationUrl = `${data.managementUrl}/auth/activate/${data.account._id}?token=${data.account.validation.key}`;
+        const validationUrl = `${data.managementUrl}/activate/${data.account._id}?token=${data.account.validation.key}`;
 
         const template = `
                     <tr>

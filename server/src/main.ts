@@ -4,6 +4,7 @@ import * as mongoose from 'mongoose';
 import * as morgan from 'morgan';
 import * as path from 'path';
 
+import { AddressInfo } from 'net';
 import { json } from 'body-parser';
 
 import { errorHandler } from './middleware/error-handler';
@@ -69,13 +70,13 @@ app.use(errorHandler);
  * Create the server
  */
 const server = http.createServer(app);
-const port = process.env['PORT'] || 8080;
+const port = process.env['PORT'];
 
 server.listen(port);
 server.on('listening', listening);
 
 function listening() {
-    const addr = server.address();
+    const addr = <AddressInfo>server.address();
     console.log(`Listening on ${addr.address}:${addr.port}`);
 }
 

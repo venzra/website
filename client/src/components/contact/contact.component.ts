@@ -35,10 +35,10 @@ export class ContactComponent implements OnInit {
         ];
 
         this.contactForm = this.forms.group({
-            alias: ['', [Validators.required]],
+            alias: [null, [Validators.required]],
             emailAddress: ['', [Validators.required, Validators.pattern(EMAIL_REGEX)]],
-            reason: ['', [Validators.required]],
-            message: ['', [Validators.required]]
+            reason: [null, [Validators.required]],
+            message: [null, [Validators.required]]
         });
     }
 
@@ -47,8 +47,10 @@ export class ContactComponent implements OnInit {
 
         this.contactService
             .sendMessage(contactData)
-            .then(() => this.contactForm.reset())
-            .catch((result) => this.snackbar.open(result.error.message || 'Failed to send message, please try again', 'OK'));
+            .subscribe(
+                () => this.contactForm.reset(),
+                (result) => this.snackbar.open(result.error.message || 'Failed to send message, please try again', 'OK')
+            );
     }
 
 }

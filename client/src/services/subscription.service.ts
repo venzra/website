@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs';
 
 import { Account } from '../models/account';
 import { Registration } from '../models/registration';
@@ -13,9 +13,7 @@ export class SubscriptionService {
         private http: HttpClient
     ) { }
 
-    createAccount(accountData: Registration): Promise<Account> {
-        return this.http.post('api/v1/registration/create', accountData)
-            .toPromise()
-            .then((response) => response as Account);
+    createAccount(accountData: Registration): Observable<Account> {
+        return this.http.post<Account>('api/v1/registration/create', accountData);
     }
 }

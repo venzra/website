@@ -11,6 +11,8 @@ interface IAccountModel extends Document {
     identity?: string;
     validation?: IAccountValidation;
     status?: string;
+    created: Date;
+    updated: Date;
 }
 
 const AccountSchema: Schema = new Schema({
@@ -55,8 +57,8 @@ const AccountSchema: Schema = new Schema({
 
 AccountSchema.index({ identity: 1 }, { unique: true });
 
-AccountSchema.pre('save', function (next) {
-    this.updated = Date.now();
+AccountSchema.pre('save', function (this: IAccountModel, next: any) {
+    this.updated = new Date();
     next();
 });
 

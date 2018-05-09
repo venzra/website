@@ -7,6 +7,8 @@ interface IPlanModel extends Document {
     price: number;
     interval: number;
     frequency: string;
+    created: Date;
+    updated: Date;
 }
 
 const PlanSchema: Schema = new Schema({
@@ -49,8 +51,8 @@ const PlanSchema: Schema = new Schema({
 
 PlanSchema.index({ name: 1 }, { unique: true });
 
-PlanSchema.pre('save', function (next) {
-    this.updated = Date.now();
+PlanSchema.pre('save', function (this: IPlanModel, next: any) {
+    this.updated = new Date();
     next();
 });
 

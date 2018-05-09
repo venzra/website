@@ -31,7 +31,7 @@ export class RegistrationComponent {
 
     createForm(): void {
         this.accountForm = this.forms.group({
-            emailAddress: ['', [Validators.required, Validators.pattern(EMAIL_REGEX)]]
+            emailAddress: [null, [Validators.required, Validators.pattern(EMAIL_REGEX)]]
         });
     }
 
@@ -46,8 +46,12 @@ export class RegistrationComponent {
 
         this.subscriptionService
             .createAccount(this.account)
-            .then(() => this.dialog.open(RegistrationConfirmationDialogComponent, { width: '90%', maxWidth: '720px' }))
-            .catch(() => this.snackbar.open('Registration failed, please try again', 'OK'))
-            .then(() => this.saving = false);
+            .subscribe(
+                () => this.dialog.open(RegistrationConfirmationDialogComponent, { width: '90%', maxWidth: '720px' }),
+                () => {
+                    this.snackbar.open('Registration failed, please try again', 'OK');
+                    this.saving = false;
+                }
+            );
     }
 }

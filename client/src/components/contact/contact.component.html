@@ -14,25 +14,25 @@
             <form fxLayout="column" fxLayoutGap="20px" (submit)="contact()" [formGroup]="contactForm">
                 <h2>Send us a message</h2>
 
-                <mat-form-field fxFlex>
+                <mat-form-field>
                     <input matInput placeholder="Your name" formControlName="alias" />
                     <mat-error *ngIf="contactForm.controls['alias'].hasError('required')">This field is required</mat-error>
                 </mat-form-field>
 
-                <mat-form-field fxFlex>
+                <mat-form-field>
                     <input matInput placeholder="Your email address" formControlName="emailAddress" />
                     <mat-error *ngIf="contactForm.controls['emailAddress'].hasError('required')">This field is required</mat-error>
                     <mat-error *ngIf="contactForm.controls['emailAddress'].hasError('pattern')">A valid email address is required</mat-error>
                 </mat-form-field>
 
-                <mat-form-field fxFlex>
+                <mat-form-field>
                     <mat-select placeholder="Reason for your message" formControlName="reason" required>
                         <mat-option *ngFor="let choice of reasons" [value]="choice.value">{{ choice.name }}</mat-option>
                     </mat-select>
                     <mat-error *ngIf="contactForm.controls['reason'].hasError('required')">This field is required</mat-error>
                 </mat-form-field>
 
-                <mat-form-field fxFlex>
+                <mat-form-field>
                     <textarea matInput rows="8" placeholder="How we can help further..." formControlName="message"></textarea>
                     <mat-error *ngIf="contactForm.controls['message'].hasError('required')">This field is required</mat-error>
                 </mat-form-field>

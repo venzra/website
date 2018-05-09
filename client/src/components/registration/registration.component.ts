@@ -11,8 +11,7 @@ const EMAIL_REGEX = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9]
 
 @Component({
     selector: 'venzra-registration',
-    templateUrl: './registration.component.html',
-    styleUrls: ['./registration.component.scss']
+    templateUrl: './registration.component.html'
 })
 export class RegistrationComponent {
 

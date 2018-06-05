@@ -1,0 +1,17 @@
+.mat-toolbar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    .mat-button {
+        border-radius: 0;
+        padding: 16px 32px;
+    }
+
+    .mat-raised-button {
+        padding: 2px 32px;
+    }
+}

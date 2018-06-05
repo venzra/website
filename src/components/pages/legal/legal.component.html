@@ -1,0 +1,8 @@
+<venzra-banner icon="gavel">
+    <h1>{{ legal.title }}</h1>
+    <h2>{{ legal.modified }}</h2>
+</venzra-banner>
+
+<venzra-content background="light">
+    <div [venzraMarkdown]="legal.content" headers="full"></div>
+</venzra-content>

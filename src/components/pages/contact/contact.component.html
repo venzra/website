@@ -1,0 +1,43 @@
+<venzra-banner title="Contact us" icon="email">
+    <h1>Contact us</h1>
+    <h2>Cant find what you are looking for?</h2>
+    <p>Our support team is here to help from 9am to 5pm every weekday, just send us a message and we wil get in touch.</p>
+</venzra-banner>
+
+<venzra-content>
+    <form [formGroup]="contactForm" (submit)="submit()">
+        <mat-card class="mat-elevation-z2 contact">
+            <mat-card-title>How can we help?</mat-card-title>
+            <mat-card-subtitle>Priority support is available to our subscribers, please ensure you enter the email address for your account if you have one.</mat-card-subtitle>
+
+            <mat-card-content fxLayout="column" fxLayoutGap="20px">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Your name" formControlName="alias" required />
+                    <mat-error *ngIf="contactForm.get(['alias']).hasError('required')">This field is required.</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Subject" formControlName="reason" required />
+                    <mat-error *ngIf="contactForm.get(['reason']).hasError('required')">This field is required.</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput type="email" placeholder="Email address" formControlName="emailAddress" required />
+                    <mat-error *ngIf="contactForm.get(['emailAddress']).hasError('required')">This field is required.</mat-error>
+                    <mat-error *ngIf="contactForm.get(['emailAddress']).hasError('pattern')">Please enter a valid email address.</mat-error>
+                    <mat-hint>You are are a customer use your account email address for priority support.</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <textarea matInput required placeholder="Describe your request" formControlName="message" matTextareaAutosize="true" [matAutosizeMinRows]="12" [matAutosizeMaxRows]="24"></textarea>
+                    <mat-error *ngIf="contactForm.get(['message']).hasError('required')">This field is required.</mat-error>
+                </mat-form-field>
+            </mat-card-content>
+
+            <mat-card-actions fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <button mat-raised-button [disabled]="contactForm.invalid" color="primary">Send email</button>
+                <p class="mat-caption">Don't forget to read our <a routerLink="/support">support pages</a> too</p>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</venzra-content>

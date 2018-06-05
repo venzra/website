@@ -1,0 +1,68 @@
+<venzra-banner title="eCommerce" icon="important_devices">
+    <h1>Venzra</h1>
+    <h2>Start selling online today and get paid.</h2>
+    <p>Your eCommerce platform, with free setup options to get you started. Sell from the high street or your home. Putting you in control of your revenue stream.</p>
+</venzra-banner>
+
+<venzra-content>
+    <h2>Take the tour</h2>
+    <p>We have prepared a short video that takes you through some of the capabilities of our platform, so pull up a chair and have a look. After watching the video you may also want to try out the customer store, so please check out the link and have a go.</p>
+
+    <div fxLayout="column" fxLayout.gt-sm="row" fxLayoutGap="20px">
+        <div fxLayout="column" fxFlex fxFlex.gt-sm="380px">
+            <mat-card fxFlex>
+                <mat-card-title>Video tour</mat-card-title>
+                <mat-card-subtitle>Enable your sound and press play.</mat-card-subtitle>
+
+                <mat-card-content align="center">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" width="250px" height="200px" />
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div fxLayout="column" fxFlex="grow">
+            <mat-card fxFlex>
+                <mat-card-title>Try out the demo store</mat-card-title>
+                <mat-card-subtitle>Products on our demo store are not real.</mat-card-subtitle>
+                <mat-card-content>
+                    <p>Try out our demo store at <a href="https://demo.venzra.io" target="_blank">demo.venzra.io</a>.</p>
+                    <p>Some of the features to try out, add and remove products from the cart, checkout and place an order use the footer links and see alternative content that can be added.</p>
+                    <p>You can even try out placing an order on the demo site, just use our test card with the number <code>4242424242424242</code> plus any valid sort code and future expiry date, note that real cards will not be accepted on the demo store.</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</venzra-content>
+
+<venzra-content>
+    <h2>Features</h2>
+    <p>The platform as any business is always growing, we have many common features, each feature has been built with simplicity in mind, yet rich enough to be highly flexible.</p>
+
+    <div fxLayout="row wrap" fxLayoutGap="20px grid">
+        <div *ngFor="let capability of features" fxLayout="column" fxFlex="100%" fxFlex.sm="50%" fxFlex.gt-sm="33.33%">
+            <mat-card fxFlex="grow">
+                <img mat-card-image src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" width="100%" height="200px" />
+                <mat-card-content>
+                    <h3>{{ capability.name }}</h3>
+                    <p>{{ capability.description }}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</venzra-content>
+
+<venzra-content>
+    <h2>Technology</h2>
+    <p>Giant leaps are being made in technology all the time, this requires a new mindset to build software and choosing the right platform for the future, here are just a few things we are doing to make sure we are the right choice for you. If there is a particular concern you have, perhaps from past experience of other systems we are happy to discuss how our platform is built to prevent such concerns.</p>
+
+    <div fxLayout="row wrap" fxLayoutGap="20px grid">
+        <div *ngFor="let capability of technology" fxLayout="column" fxFlex="100%" fxFlex.sm="50%" fxFlex.gt-sm="33.33%">
+            <mat-card fxFlex="grow">
+                <img mat-card-image src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" width="100%" height="200px" />
+                <mat-card-content>
+                    <h3>{{ capability.name }}</h3>
+                    <p>{{ capability.description }}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</venzra-content>

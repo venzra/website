@@ -3,31 +3,40 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "www": {
+        "website": {
             "root": "",
-            "sourceRoot": "client",
+            "sourceRoot": "src",
             "projectType": "application",
+            "prefix": "venzra",
+            "schematics": {},
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
                         "outputPath": "dist",
-                        "index": "client/index.html",
-                        "main": "client/main.ts",
-                        "tsConfig": "client/tsconfig.json",
-                        "polyfills": "client/polyfills.ts",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "src/tsconfig.json",
                         "assets": [
-                            "client/assets",
-                            "client/favicon.ico"
+                            "src/favicon.ico"
                         ],
                         "styles": [
-                            "client/styles.scss",
+                            "src/styles.scss",
                             "node_modules/normalize.css/normalize.css"
                         ],
-                        "scripts": []
+                        "scripts": [
+                            "node_modules/marked/lib/marked.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ],
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
@@ -36,55 +45,40 @@
                             "aot": true,
                             "extractLicenses": true,
                             "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "fileReplacements": [
-                                {
-                                    "replace": "client/environments/environment.ts",
-                                    "with": "client/environments/environment.prod.ts"
-                                }
-                            ]
+                            "buildOptimizer": true
                         }
                     }
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "www:build"
+                        "browserTarget": "website:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "www:build:production"
+                            "browserTarget": "website:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "www:build"
+                        "browserTarget": "website:build"
                     }
                 },
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": [
-                            "client/tsconfig.json"
+                            "src/tsconfig.json"
                         ],
-                        "exclude": []
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
                     }
                 }
             }
         }
     },
-    "defaultProject": "www",
-    "schematics": {
-        "@schematics/angular:component": {
-            "inlineStyle": true,
-            "inlineTemplate": true,
-            "prefix": "venzra",
-            "styleext": "scss"
-        },
-        "@schematics/angular:directive": {
-            "prefix": "venzra"
-        }
-    }
+    "defaultProject": "website"
 }

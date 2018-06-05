@@ -1,0 +1,33 @@
+<venzra-banner title="Sign up" align="center">
+    <h1>Create your store</h1>
+    <h2>It only takes a moment to setup your account and begin.</h2>
+</venzra-banner>
+
+<venzra-content>
+    <div fxLayout="row" fxLayoutAlign="center">
+        <form [formGroup]="registrationForm" (submit)="register()" fxFlex fxFlex.sm="80%" fxFlex.gt-sm="50%" fxFlex.xl="33%">
+            <mat-card class="mat-elevation-z2 registration">
+                <mat-card-title>Sign up with Venzra</mat-card-title>
+                <mat-card-subtitle>Provide your email address for which you would like to register. We will send an email to you which will contain a link to complete your registration.</mat-card-subtitle>
+
+                <mat-card-content fxLayout="column" fxLayoutGap="20px">
+                    <mat-form-field>
+                        <input matInput type="email" placeholder="Email address" formControlName="identity" required />
+                        <mat-error *ngIf="registrationForm.get(['identity']).hasError('required')">This field is required.</mat-error>
+                        <mat-error *ngIf="registrationForm.get(['identity']).hasError('pattern')">Please enter a valid email address.</mat-error>
+                    </mat-form-field>
+
+                    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+                        <mat-checkbox formControlName="acceptTerms"></mat-checkbox>
+                        <div>I have read and understood the <a href="/">terms of service</a> and <a href="/">privacy policy</a>, as such I agree to the processing of personal data accordingly.</div>
+                    </div>
+                </mat-card-content>
+
+                <mat-card-actions fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px">
+                    <button mat-raised-button [disabled]="registrationForm.invalid" color="primary">Create account</button>
+                    <p class="mat-caption">Already have an account with Venzra? <a [href]="adminPortal">Log in</a></p>
+                </mat-card-actions>
+            </mat-card>
+        </form>
+    </div>
+</venzra-content>

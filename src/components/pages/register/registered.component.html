@@ -1,0 +1,31 @@
+<venzra-banner title="Sign up" align="center">
+    <h1>Create your store</h1>
+    <h2>It only takes a moment to setup your account and begin.</h2>
+</venzra-banner>
+
+<venzra-content>
+    <mat-card>
+        <mat-card-title>Registration successful</mat-card-title>
+        <mat-card-subtitle>Your account registration is almost complete.</mat-card-subtitle>
+
+        <mat-card-content fxLayout="column" fxLayoutGap="20px">
+            <div>
+                <h4>We have sent you an email</h4>
+                <p>Please check your email account. Allow a few minutes for this to reach you.</p>
+                <p>This is done to ensure that you own the email address you have registered with and gives us proof of account ownership, it also will allow you to recover credentials in the future.</p>
+            </div>
+
+            <div>
+                <h4>Follow the email instructions</h4>
+                <p>Once you have your email it will contain a link to conclude the registration with further information on how to get your account working for you.</p>
+                <p>After this you will be able to <a [href]="adminPortal">login</a> and associate a payment gateway, configure products for sale, and create categories. This will allow customers to then place orders and you can start getting paid.</p>
+            </div>
+
+            <div>
+                <h4>Check our our support area</h4>
+                <p>We have created some <a routerLink="support">videos</a> to help you with configuring the aspects of your site, have a look and make the most of your store.</p>
+                <p>If you are having any problems or would just like to give us some feedback please <a routerLink="contact">contact us</a> and we will be in touch.</p>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</venzra-content>

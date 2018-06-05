@@ -1,0 +1,136 @@
+/* Setup Angular Material theme */
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$venzra-app-primary: mat-palette($mat-deep-purple);
+$venzra-app-accent: mat-palette($mat-blue, 600);
+$venzra-app-warn: mat-palette($mat-red);
+$venzra-app-theme: mat-light-theme($venzra-app-primary, $venzra-app-accent, $venzra-app-warn);
+
+@include angular-material-theme($venzra-app-theme);
+
+/* Setup Angular Material typography */
+
+$venzra-global-typography: mat-typography-config(
+    $font-family: 'Roboto',
+    $body-1: mat-typography-level(0.9rem, 1.5em, 400),
+    $body-2: mat-typography-level(0.9rem, 1.5em, 700)
+);
+
+@include angular-material-typography($venzra-global-typography);
+
+$venzra-base-typography: mat-typography-config(
+    $font-family: 'Roboto',
+    $headline: mat-typography-level(2.4rem, 1.5em, 100),
+    $title: mat-typography-level(1.7rem, 1.5em, 300),
+    $subheading-2: mat-typography-level(1.4rem, 1.5em, 300),
+    $subheading-1: mat-typography-level(1.1rem, 1.5em, 400),
+    $body-1: mat-typography-level(0.9rem, 1.5em, 400),
+    $body-2: mat-typography-level(0.9rem, 1.5em, 700),
+    $caption: mat-typography-level(0.7rem, 1.5em, 400)
+);
+
+@include mat-base-typography($venzra-base-typography);
+
+/* Override any global values */
+
+body {
+    padding-top: 64px;
+    background-color: mat-color($venzra-app-primary, 200);
+
+    @media($mat-xsmall) {
+        padding-top: 56px;
+    }
+}
+
+.mat-typography {
+    h1 {
+        margin-bottom: 16px;
+    }
+
+    h2 {
+        margin-bottom: 8px;
+    }
+
+    h3 {
+        margin-bottom: 4px;
+    }
+
+    h4 {
+        margin-bottom: 2px;
+    }
+
+    p {
+        margin-bottom: 16px;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid mat-color($venzra-app-primary, 500);
+    margin-bottom: 20px;
+
+    thead {
+        tr {
+            th {
+                padding: 8px 12px;
+                white-space: nowrap;
+            }
+        }
+        color: mat-color($venzra-app-primary, '500-contrast');
+        background: mat-color($venzra-app-primary);
+    }
+
+    tbody {
+        tr {
+            td {
+                padding: 8px 12px;
+            }
+            color: mat-color($venzra-app-primary, '100-contrast');
+            background: mat-color($venzra-app-primary, 100);
+        }
+
+        tr:nth-of-type(odd) {
+            color: mat-color($venzra-app-primary, '50-contrast');
+            background: mat-color($venzra-app-primary, 50);
+        }
+    }
+}
+
+li, p, div {
+    > a:not(.mat-button):not(.mat-raised-button) {
+        color: mat-color($venzra-app-accent);
+        text-decoration: none;
+
+        &:hover {
+            color: mat-color($venzra-app-accent, 800);
+        }
+    }
+}
+
+venzra-root {
+    .mat-expansion-panel {
+        background-color: mat-color($venzra-app-primary, 50);
+
+        &.mat-expansion-panel:not([class*=mat-elevation-z]) {
+            box-shadow: none;
+        }
+    }
+
+    .mat-card {
+        background-color: mat-color($venzra-app-primary, 50);
+
+        &.mat-card:not([class*=mat-elevation-z]) {
+            box-shadow: none;
+        }
+    }
+
+    .mat-button, .mat-raised-button {
+        border-radius: 30px;
+    }
+}
+
+.mat-button, .mat-raised-button {
+    text-transform: uppercase;
+}

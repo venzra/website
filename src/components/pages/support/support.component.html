@@ -1,0 +1,112 @@
+<venzra-banner title="Support" icon="supervisor_account">
+    <h1>Support</h1>
+    <h2>We have got you covered.</h2>
+    <p>Looking for a particular answer or perhaps have a request for something new. Browse this section for tips and ideas on how to build your online presence.</p>
+</venzra-banner>
+
+<venzra-content>
+    <div fxLayout="column" fxLayoutGap="20px">
+        <div fxLayout="column-reverse" fxLayout.gt-sm="row" fxLayoutGap="20px">
+            <div fxFlex fxFlex.gt-sm="50%">
+                <h2>Documentation</h2>
+                <p>Learn more about how to make the best use of Venzra.</p>
+
+                <mat-accordion>
+                    <mat-expansion-panel [expanded]="true">
+                        <mat-expansion-panel-header>Getting started</mat-expansion-panel-header>
+
+                        <mat-nav-list dense>
+                            <a mat-list-item (click)="openDocs('getting-started', 'start-selling-online')">Start selling online</a>
+                            <a mat-list-item (click)="openDocs('getting-started', 'managing-products')">Managing products</a>
+                            <a mat-list-item (click)="openDocs('getting-started', 'customer-store-branding')">Customise store branding</a>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>Payment gateway</mat-expansion-panel-header>
+
+                        <mat-nav-list dense>
+                            <a mat-list-item (click)="openDocs('payment-gateway', 'connect-with-stripe')">Connect with Stripe</a>
+                            <a mat-list-item (click)="openDocs('payment-gateway', 'getting-paid')">Getting paid</a>
+                            <a mat-list-item (click)="openDocs('payment-gateway', 'managing-transactions')">Managing transactions</a>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>Order processing</mat-expansion-panel-header>
+
+                        <mat-nav-list dense>
+                            <a mat-list-item (click)="openDocs('order-processing', 'understand-your-first-order')">Understand your first order</a>
+                            <a mat-list-item (click)="openDocs('order-processing', 'processing-an-order')">Processing an order</a>
+                            <a mat-list-item (click)="openDocs('order-processing', 'order-analytics-explained')">Order analytics explained</a>
+                        </mat-nav-list>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+
+            <div fxFlex fxFlex.gt-sm="50%">
+                <h2>Guides</h2>
+                <p>Take a look at these quick start videos on using Venzra.</p>
+
+                <div fxLayout="column" fxLayoutGap="20px">
+                    <mat-card>
+                        <img mat-card-image src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" width="100%" height="240px" />
+                        <mat-card-content>Getting started</mat-card-content>
+                    </mat-card>
+
+                    <mat-card>
+                        <img mat-card-image src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" width="100%" height="240px" />
+                        <mat-card-content>Admin portal</mat-card-content>
+                    </mat-card>
+
+                    <mat-card>
+                        <img mat-card-image src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" width="100%" height="240px" />
+                        <mat-card-content>Customer store</mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="column" fxLayoutGap="20px">
+            <div>
+                <h2>Frequently asked questions</h2>
+                <p>These are the questions our customers ask us and we want to share some helpful topics.</p>
+            </div>
+
+            <div>
+                <h4>What limitations are there on non-subscription accounts?</h4>
+                <p>None. Both forms of account have unlimited bandwidth and storage available to use. There are limitations for both accounts in areas such as individual file upload sizes, this is to help ensure that visitors to your store dont experience performance issues. Subscription holders are also able to activate additional platform features that can benefit certain businesses as they grow or with niche requirements.</p>
+            </div>
+
+            <div>
+                <h4>At what point do I need to get a subscription?</h4>
+                <p>Never. We do not require that you ever take up a subscription, we are a true believer in not making money unless our customers are making money. However if you require certain paid for features then you will need the basic subscription to be able to activate these extras.</p>
+            </div>
+
+            <div>
+                <h4>Can I cancel my account at any time?</h4>
+                <p>Yes. You may cancel your account any time, however we will provide further information at the time as you may be due outstanding payments from recent orders. If you have a subscription then the base subscription is not refundable however we will refund any extras you are no longer using.</p>
+            </div>
+
+            <div>
+                <h4>How much does it cost to setup my shop?</h4>
+                <p>Nothing. There are no fees to setup your account and configure your shop. However if you are after assistance on complicated matters we do suggest considering contacting a freelancer or ourselves to discuss more complicated needs.</p>
+            </div>
+
+            <div>
+                <h4>Can I create a shop anywhere in the world?</h4>
+                <p>Mostly. Our software is hosted and managed from the UK as such all subscriptions and fees are charged in GBP, however you can select to have your payment gateway in your local currencies. We currently only offer the platform in English, as such some currency symbols may not be supported, however please contact us to highlight any such issues and we will strive to resolve them as soon as possible.</p>
+            </div>
+
+            <div>
+                <h4>What security measures are in place?</h4>
+                <p>We do all we can to protect our customers, all accounts have data encryption in place and we as PCI DSS v3.2 compliant in how we manage data, this is the most up to date compliance for handling online transactions, requiring the highest standards when processing payments.</p>
+            </div>
+
+            <div>
+                <h4>How are transaction fees calculated?</h4>
+                <p>Whenever there is an order placed on your shop the fee is broken into two parts, Venzra take a fee of between 2.1% and 4.6% depending on if you have a subscription in place, then there is also the payment processing element managed by Stripe this ranges from 1.4% to 2.9% depending on the type of card your customers make their payment with and how you have setup your account on Stripe.</p>
+            </div>
+        </div>
+    </div>
+</venzra-content>

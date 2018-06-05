@@ -1,0 +1,8 @@
+<div matDialogTitle>{{ data.documentation.title }}</div>
+
+<div matDialogContent [venzraMarkdown]="data.documentation.content" headers="simple"></div>
+
+<div matDialogActions fxLayoutAlign="space-between center">
+    <div class="mat-caption">{{ data.documentation.modified }}</div>
+    <button mat-raised-button (click)="close()" color="primary">Close</button>
+</div>

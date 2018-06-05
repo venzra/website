@@ -1,0 +1,35 @@
+@import '../../../styles';
+@import '../../../../node_modules/@angular/material/theming';
+@include mat-core();
+
+.venzra-footer-background {
+    overflow: hidden;
+    background-color: mat-color($venzra-app-primary, 200);
+}
+
+.venzra-footer {
+    position: relative;
+    margin: 0 auto;
+    padding: 32px 16px;
+    max-width: 1280px;
+    color: mat-color($venzra-app-primary, '200-contrast');
+
+    a {
+        img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .mat-list-item {
+        color: mat-color($venzra-app-primary, '200-contrast');
+
+        &:hover {
+            color: inherit;
+        }
+    }
+
+    .venzra-footer-links {
+        margin: 0 0 32px;
+    }
+}

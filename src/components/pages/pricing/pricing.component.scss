@@ -1,0 +1,25 @@
+@import '../../../styles';
+@import '../../../../node_modules/@angular/material/theming';
+@include mat-core();
+
+.highlights {
+    > div {
+        border-right: 1px mat-color($venzra-app-primary, 100) solid;
+    }
+
+    > div:last-child {
+        border-right: 0;
+    }
+
+    @media ($mat-small) {
+        > div {
+            border-right: 0;
+        }
+    }
+}
+
+.signup {
+    padding: 16px 32px;
+    font-size: 24px;
+    line-height: 32px;
+}

@@ -1,0 +1,24 @@
+@import '../../../styles';
+@import '../../../../node_modules/@angular/material/theming';
+@include mat-core();
+
+.venzra-content-background {
+    background-color: mat-color($venzra-app-primary, 100);
+    overflow: hidden;
+
+    &.light {
+        background-color: mat-color($venzra-app-primary, 50);
+    }
+}
+
+.venzra-content {
+    position: relative;
+    margin: 0 auto;
+    padding: 32px 16px;
+    max-width: 1280px;
+    color: mat-color($venzra-app-primary, '100-contrast');
+
+    &.light {
+        color: mat-color($venzra-app-primary, '50-contrast');
+    }
+}

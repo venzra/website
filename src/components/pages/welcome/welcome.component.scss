@@ -1,6 +1,20 @@
-.mat-icon {
-    height: 48px;
-    width: 48px;
-    font-size: 48px;
-    line-height: 48px;
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+.highlights {
+    .mat-icon {
+        height: 48px;
+        width: 48px;
+        font-size: 48px;
+        line-height: 48px;
+    }
+
+    @media ($mat-xsmall) {
+        text-align: center;
+    }
+
+    @media ($mat-small) {
+        text-align: center;
+    }
 }

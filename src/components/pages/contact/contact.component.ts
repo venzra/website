@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 
 import { emailValidator } from '@venzra/models';
-import { ContactService } from '@venzra/services';
+import { SupportService } from '@venzra/services';
 
 @Component({
     templateUrl: './contact.component.html',
@@ -18,7 +18,7 @@ export class ContactComponent implements OnInit {
         private forms: FormBuilder,
         private router: Router,
         private snackbar: MatSnackBar,
-        private contactService: ContactService
+        private supportService: SupportService
     ) { }
 
     ngOnInit(): void {
@@ -33,7 +33,7 @@ export class ContactComponent implements OnInit {
     submit(): void {
         const contactData = this.contactForm.getRawValue();
 
-        this.contactService
+        this.supportService
             .sendMessage(contactData)
             .subscribe(
                 () => this.router.navigate(['/contacted']),

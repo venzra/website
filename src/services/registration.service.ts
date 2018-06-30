@@ -16,6 +16,6 @@ export class RegistrationService {
     ) { }
 
     createAccount(accountData: Registration): Observable<Account> {
-        return this.http.post<Account>('/accounts/registration', accountData);
+        return this.http.post<Account>('/website/identity', accountData);
     }
 }

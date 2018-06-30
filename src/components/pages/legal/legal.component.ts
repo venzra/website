@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Documentation } from '@venzra/models';
-import { DocumentationService } from '@venzra/services';
+import { SupportService } from '@venzra/services';
 
 @Component({
     templateUrl: './legal.component.html'
@@ -14,7 +14,7 @@ export class LegalComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
-        private documentationService: DocumentationService
+        private supportService: SupportService
     ) { }
 
     ngOnInit(): void {
@@ -26,7 +26,7 @@ export class LegalComponent implements OnInit {
                 return false;
             }
             this.page = params.page;
-            this.documentationService.findOne('legal', this.page).subscribe((document) => this.legal = document);
+            this.supportService.loadGuide('legal', this.page).subscribe((document) => this.legal = document);
         });
     }
 

@@ -39,8 +39,12 @@ body {
     padding-top: 64px;
     background-color: mat-color($venzra-app-primary, 200);
 
+    @media($mat-small) {
+        padding-top: 128px;
+    }
+
     @media($mat-xsmall) {
-        padding-top: 56px;
+        padding-top: 112px;
     }
 }
 

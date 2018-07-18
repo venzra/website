@@ -1,3 +1,8 @@
+@import '~@angular/material/theming';
+@import '../../../styles';
+
+@include mat-core();
+
 .mat-toolbar {
     position: fixed;
     top: 0;
@@ -8,7 +13,11 @@
 
     .mat-button {
         border-radius: 0;
-        padding: 16px 32px;
+        padding: 14px 32px;
+
+        &.active {
+            background-color: mat-color($venzra-app-primary, 700);
+        }
     }
 
     .mat-raised-button {

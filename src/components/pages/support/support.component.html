@@ -6,65 +6,67 @@
 
 <venzra-content>
     <div fxLayout="column" fxLayoutGap="20px">
+        <div>
+            <h2>Documentation</h2>
+            <p>Learn more about how to get the most out of Venzra and building your online store.</p>
+        </div>
+
         <div fxLayout="column-reverse" fxLayout.gt-sm="row" fxLayoutGap="20px">
-            <div fxFlex fxFlex.gt-sm="grow">
-                <h2>Documentation</h2>
-                <p>Learn more about how to make the best use of Venzra.</p>
+            <mat-card fxFlex fxFlex.gt-sm="grow">
+                <mat-card-title>Getting started</mat-card-title>
+                <mat-card-subtitle>These guides will help getting your store up and running.</mat-card-subtitle>
+                <mat-card-content>
+                    <mat-nav-list>
+                        <a mat-list-item (click)="openDocs('getting-started', 'start-selling-online')">Start selling online</a>
+                        <a mat-list-item (click)="openDocs('getting-started', 'adding-a-product')">Adding a product</a>
+                        <a mat-list-item (click)="openDocs('getting-started', 'store-configuration')">Store configuration</a>
+                        <a mat-list-item (click)="openDocs('getting-started', 'getting-paid')">Getting paid</a>
+                    </mat-nav-list>
+                </mat-card-content>
+            </mat-card>
+            <mat-card fxFlex fxFlex.gt-sm="560px">
+                <iframe mat-card-image width="560" height="315" src="https://www.youtube.com/embed/A2EnzcQDCJ4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <mat-card-content>Quick start guide to getting your store running in under 5 minutes.</mat-card-content>
+            </mat-card>
+        </div>
 
-                <mat-accordion>
-                    <mat-expansion-panel [expanded]="true">
-                        <mat-expansion-panel-header>Getting started</mat-expansion-panel-header>
+        <div fxLayout="column" fxLayout.gt-sm="row-reverse" fxLayoutGap="20px">
+            <mat-card fxFlex fxFlex.gt-sm="grow">
+                <mat-card-title>Administration guides</mat-card-title>
+                <mat-card-subtitle>Discover how to grow your store.</mat-card-subtitle>
+                <mat-card-content>
+                    <mat-nav-list>
+                        <a mat-list-item (click)="openDocs('admin-guides', 'your-dashboard')">Your dashboard</a>
+                        <a mat-list-item (click)="openDocs('admin-guides', 'products')">Products</a>
+                        <a mat-list-item (click)="openDocs('admin-guides', 'orders')">Orders</a>
+                        <a mat-list-item (click)="openDocs('admin-guides', 'store-setup')">Store setup</a>
+                        <a mat-list-item (click)="openDocs('admin-guides', 'account-management')">Account management</a>
+                    </mat-nav-list>
+                </mat-card-content>
+            </mat-card>
+            <mat-card fxFlex fxFlex.gt-sm="560px">
+                <img mat-card-image src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" width="100%" height="320px" />
+                <mat-card-content>A walk-through of all the features available on the admin portal.</mat-card-content>
+            </mat-card>
+        </div>
 
-                        <mat-nav-list dense>
-                            <a mat-list-item (click)="openDocs('getting-started', 'start-selling-online')">Start selling online</a>
-                            <a mat-list-item (click)="openDocs('getting-started', 'managing-products')">Managing products</a>
-                            <a mat-list-item (click)="openDocs('getting-started', 'customer-store-branding')">Customise store branding</a>
-                        </mat-nav-list>
-                    </mat-expansion-panel>
-
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>Payment gateway</mat-expansion-panel-header>
-
-                        <mat-nav-list dense>
-                            <a mat-list-item (click)="openDocs('payment-gateway', 'connect-with-stripe')">Connect with Stripe</a>
-                            <a mat-list-item (click)="openDocs('payment-gateway', 'getting-paid')">Getting paid</a>
-                            <a mat-list-item (click)="openDocs('payment-gateway', 'managing-transactions')">Managing transactions</a>
-                        </mat-nav-list>
-                    </mat-expansion-panel>
-
-                    <mat-expansion-panel>
-                        <mat-expansion-panel-header>Order processing</mat-expansion-panel-header>
-
-                        <mat-nav-list dense>
-                            <a mat-list-item (click)="openDocs('order-processing', 'understand-your-first-order')">Understand your first order</a>
-                            <a mat-list-item (click)="openDocs('order-processing', 'processing-an-order')">Processing an order</a>
-                            <a mat-list-item (click)="openDocs('order-processing', 'order-analytics-explained')">Order analytics explained</a>
-                        </mat-nav-list>
-                    </mat-expansion-panel>
-                </mat-accordion>
-            </div>
-
-            <div fxFlex fxFlex.gt-sm="560px">
-                <h2>Guides</h2>
-                <p>Take a look at these quick start videos on using Venzra.</p>
-
-                <div fxLayout="column" fxLayoutGap="20px">
-                    <mat-card>
-                        <iframe mat-card-image width="560" height="315" src="https://www.youtube.com/embed/A2EnzcQDCJ4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                        <mat-card-content>Getting started</mat-card-content>
-                    </mat-card>
-
-                    <mat-card>
-                        <img mat-card-image src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" width="100%" height="240px" />
-                        <mat-card-content>Admin portal</mat-card-content>
-                    </mat-card>
-
-                    <mat-card>
-                        <img mat-card-image src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" width="100%" height="240px" />
-                        <mat-card-content>Customer store</mat-card-content>
-                    </mat-card>
-                </div>
-            </div>
+        <div fxLayout="column-reverse" fxLayout.gt-sm="row" fxLayoutGap="20px">
+            <mat-card fxFlex fxFlex.gt-sm="grow">
+                <mat-card-title>Store guides</mat-card-title>
+                <mat-card-subtitle>Learn how your store works (when using our templates).</mat-card-subtitle>
+                <mat-card-content>
+                    <mat-nav-list>
+                        <a mat-list-item (click)="openDocs('store-guides', 'products')">Products</a>
+                        <a mat-list-item (click)="openDocs('store-guides', 'shopping-cart')">Shopping cart</a>
+                        <a mat-list-item (click)="openDocs('store-guides', 'checkout')">Checkout</a>
+                        <a mat-list-item (click)="openDocs('store-guides', 'customer-accounts')">Customer accounts</a>
+                    </mat-nav-list>
+                </mat-card-content>
+            </mat-card>
+            <mat-card fxFlex fxFlex.gt-sm="560px">
+                <img mat-card-image src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" width="100%" height="320px" />
+                <mat-card-content>See how the store works from the view point of a customer buying products.</mat-card-content>
+            </mat-card>
         </div>
 
         <div fxLayout="column" fxLayoutGap="20px">

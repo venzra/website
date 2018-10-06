@@ -41,7 +41,7 @@
     <div fxLayout="row wrap" fxLayoutGap="20px grid">
         <div *ngFor="let capability of features" fxLayout="column" fxFlex="100%" fxFlex.sm="50%" fxFlex.gt-sm="33.33%">
             <mat-card fxFlex="grow">
-                <img mat-card-image [src]="capability.image" width="100%" height="300px" />
+                <img mat-card-image [src]="capability.image" [alt]="capability.name" width="100%" height="300px" />
                 <mat-card-content>
                     <h3>{{ capability.name }}</h3>
                     <p>{{ capability.description }}</p>
@@ -58,7 +58,7 @@
     <div fxLayout="row wrap" fxLayoutGap="20px grid">
         <div *ngFor="let capability of technology" fxLayout="column" fxFlex="100%" fxFlex.sm="50%" fxFlex.gt-sm="33.33%">
             <mat-card fxFlex="grow">
-                <img mat-card-image [src]="capability.image" width="100%" height="300px" />
+                <img mat-card-image [src]="capability.image" [alt]="capability.name" width="100%" height="300px" />
                 <mat-card-content>
                     <h3>{{ capability.name }}</h3>
                     <p>{{ capability.description }}</p>

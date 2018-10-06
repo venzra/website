@@ -1,0 +1,10 @@
+# robots.txt file for www.venzra.com
+
+User-agent: *
+
+Disallow: /register
+Disallow: /contact
+Disallow: /prizes
+Disallow: /legal*
+
+Sitemap: https://www.venzra.com/sitemap.xml

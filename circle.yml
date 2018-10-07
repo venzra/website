@@ -85,7 +85,7 @@ jobs:
           no_output_timeout: 1h
       - run:
           name: Sync assets to S3
-          command: aws s3 sync dist s3://${DEPLOY_URI} --delete --region eu-west-1 --cache-control 86400
+          command: aws s3 sync dist s3://${DEPLOY_URI} --delete --region eu-west-1 --cache-control max-age=2592000,public
       - run:
           name: Invalidate CloudFront caches
           command: aws cloudfront create-invalidation --distribution-id `aws cloudformation list-stack-resources --stack-name "${DEPLOY_STACK}-cloudfront" --region eu-west-1 | python -c 'import sys; import json; res=json.loads(sys.stdin.read()); print(res["StackResourceSummaries"][0]["PhysicalResourceId"])'` --paths '/*'  --region eu-west-1

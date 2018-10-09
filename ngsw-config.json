@@ -19,8 +19,7 @@
             "updateMode": "prefetch",
             "resources": {
                 "urls": [
-                    "https://fonts.googleapis.com/**",
-                    "https://cdn.venzra.com/**"
+                    "https://fonts.googleapis.com/**"
                 ]
             }
         }

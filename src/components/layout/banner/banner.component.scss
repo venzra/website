@@ -1,8 +1,6 @@
 @import '~@angular/material/theming';
 @import '../../../styles';
 
-@include mat-core();
-
 .venzra-banner-background {
     background-color: mat-color($venzra-app-primary);
     overflow: hidden;

@@ -1,8 +1,6 @@
 @import '~@angular/material/theming';
 @import '../../../styles';
 
-@include mat-core();
-
 .mat-toolbar {
     position: fixed;
     top: 0;

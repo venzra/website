@@ -1,8 +1,6 @@
 @import '~@angular/material/theming';
 @import '../../../styles';
 
-@include mat-core();
-
 .highlights {
     > div {
         border-right: 1px mat-color($venzra-app-primary, 100) solid;
